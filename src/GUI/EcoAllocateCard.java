@@ -55,12 +55,12 @@ public class EcoAllocateCard extends JPanel {
 		OtherRoleText.setColumns(10);
 		OtherRoleText.show(false);
 		
-		JLabel OtherLabel = new JLabel("Other Role");
+		final JLabel OtherLabel = new JLabel("Other Role");
 		OtherLabel.setBounds(282, 427, 84, 14);
 		add(OtherLabel);
 		OtherLabel.show(false);
 		
-		JComboBox RoleBox = new JComboBox();
+		final JComboBox RoleBox = new JComboBox();
 		RoleBox.setBounds(376, 393, 133, 20);
 		RoleBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -93,7 +93,7 @@ public class EcoAllocateCard extends JPanel {
 		lblWorkLoad.setBounds(283, 365, 83, 14);
 		this.add(lblWorkLoad);
 		
-		JComboBox WorkLoadBox = new JComboBox();
+		final JComboBox WorkLoadBox = new JComboBox();
 		WorkLoadBox.setBounds(376, 362, 43, 20);
 		this.add(WorkLoadBox);
 		WorkLoadBox.addItem("25");
@@ -147,7 +147,7 @@ public class EcoAllocateCard extends JPanel {
 		scrollPane_1.setBounds(10, 49, 256, 438);
 		add(scrollPane_1);
 		
-		JList ConsultantList = new JList();
+		final JList ConsultantList = new JList();
 		scrollPane_1.setViewportView(ConsultantList);
 		ConsultantList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		ConsultantList.setModel(ListModelUser);
@@ -156,7 +156,7 @@ public class EcoAllocateCard extends JPanel {
 		scrollPane.setBounds(519, 49, 272, 438);
 		add(scrollPane);
 		
-		JList ProjectList = new JList();
+		final JList ProjectList = new JList();
 		scrollPane.setViewportView(ProjectList);
 		ProjectList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		ProjectList.setModel(ListModelProject); 
