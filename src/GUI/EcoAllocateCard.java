@@ -39,30 +39,30 @@ public class EcoAllocateCard extends JPanel {
 	
 		
 		JLabel lblChooseConsultant = new JLabel("1. Choose consultant");
-		lblChooseConsultant.setBounds(10, 33, 147, 14);
+		lblChooseConsultant.setBounds(20, 33, 147, 14);
 		add(lblChooseConsultant);
 		
 		JLabel lblChoose = new JLabel("2. Choose project");
-		lblChoose.setBounds(519, 33, 160, 14);
+		lblChoose.setBounds(231, 33, 160, 14);
 		add(lblChoose);
 		
 		JLabel lblSetOptions = new JLabel("3. Set Options");
-		lblSetOptions.setBounds(344, 291, 108, 14);
+		lblSetOptions.setBounds(444, 33, 108, 14);
 		add(lblSetOptions);
 		
 		OtherRoleText = new JTextField();
-		OtherRoleText.setBounds(376, 424, 133, 20);
+		OtherRoleText.setBounds(538, 151, 133, 20);
 		add(OtherRoleText);
 		OtherRoleText.setColumns(10);
 		OtherRoleText.show(false);
 		
 		JLabel OtherLabel = new JLabel("Other Role");
-		OtherLabel.setBounds(282, 427, 84, 14);
+		OtherLabel.setBounds(444, 154, 84, 14);
 		add(OtherLabel);
 		OtherLabel.show(false);
 		
 		JComboBox RoleBox = new JComboBox();
-		RoleBox.setBounds(376, 393, 133, 20);
+		RoleBox.setBounds(538, 120, 133, 20);
 		RoleBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -94,15 +94,15 @@ public class EcoAllocateCard extends JPanel {
 		
 		
 		JLabel lblProjectRole = new JLabel("Project Role");
-		lblProjectRole.setBounds(282, 396, 84, 14);
+		lblProjectRole.setBounds(444, 123, 84, 14);
 		this.add(lblProjectRole);
 		
 		JLabel lblWorkLoad = new JLabel("Work Load");
-		lblWorkLoad.setBounds(283, 365, 83, 14);
+		lblWorkLoad.setBounds(445, 92, 83, 14);
 		this.add(lblWorkLoad);
 		
 		JComboBox WorkLoadBox = new JComboBox();
-		WorkLoadBox.setBounds(376, 362, 55, 20);
+		WorkLoadBox.setBounds(538, 89, 55, 20);
 		this.add(WorkLoadBox);
 		WorkLoadBox.addItem("25");
 		WorkLoadBox.addItem("50");
@@ -142,35 +142,39 @@ public class EcoAllocateCard extends JPanel {
 
 		
 		JLabel label_1 = new JLabel("Hourly Rate");
-		label_1.setBounds(282, 334, 89, 14);
+		label_1.setBounds(444, 61, 89, 14);
 		this.add(label_1);
 		
 		HourlyRateText = new JTextField();
-		HourlyRateText.setBounds(376, 331, 86, 20);
+		HourlyRateText.setBounds(538, 58, 86, 20);
 		HourlyRateText.setText("323, 12, 867, 498");
 		HourlyRateText.setColumns(10);
 		this.add(HourlyRateText);
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(10, 49, 256, 438);
+		scrollPane_1.setBounds(20, 49, 256, 438);
 		add(scrollPane_1);
+		scrollPane_1.setSize(200, 250);
 		
 		JList ConsultantList = new JList();
 		scrollPane_1.setViewportView(ConsultantList);
 		ConsultantList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		ConsultantList.setModel(ListModelUser);
+		ConsultantList.setSize(200, 250);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(519, 49, 272, 438);
+		scrollPane.setBounds(231, 49, 272, 438);
 		add(scrollPane);
+		scrollPane.setSize(200, 250);
 		
 		JList ProjectList = new JList();
 		scrollPane.setViewportView(ProjectList);
 		ProjectList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		ProjectList.setModel(ListModelProject); 
+		ProjectList.setSize(200, 250);
 		
 		JButton AllocateButton = new JButton("Allocate Resource");
-		AllocateButton.setBounds(376, 455, 133, 23);
+		AllocateButton.setBounds(538, 276, 133, 23);
 		HourlyRateText.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent arg0) {
@@ -212,7 +216,7 @@ public class EcoAllocateCard extends JPanel {
 		this.add(AllocateButton);
 		
 		JLabel label = new JLabel("%");
-		label.setBounds(434, 368, 55, 14);
+		label.setBounds(596, 95, 55, 14);
 		add(label);
 
 	}
