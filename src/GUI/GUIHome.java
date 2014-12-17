@@ -145,7 +145,7 @@ public class GUIHome  {
         		cardLayout.show(viewCards, "EIOC");
         	}
         });
-        btnInvoiceOverview.setBounds(0, 38, 158, 25);
+        btnInvoiceOverview.setBounds(0, 66, 158, 25);
         EKOmenuCard.add(btnInvoiceOverview);
         
         JButton btnWages = new JButton("Wages");
@@ -157,7 +157,7 @@ public class GUIHome  {
         		cardLayout.show(viewCards, "EWC");
         	}
         });
-        btnWages.setBounds(0, 64, 158, 25);
+        btnWages.setBounds(0, 91, 158, 25);
         EKOmenuCard.add(btnWages);
         
         JButton btnSendEmail = new JButton("Send email");
@@ -169,7 +169,7 @@ public class GUIHome  {
         		cardLayout.show(viewCards, "EEC");
         	}
         });
-        btnSendEmail.setBounds(0, 90, 158, 25);
+        btnSendEmail.setBounds(0, 140, 158, 25);
         EKOmenuCard.add(btnSendEmail);
         
         JPanel adminMenuCard = new JPanel();
@@ -262,6 +262,21 @@ public class GUIHome  {
         pane.add(viewCards);
         EKOmenuCard.setBackground(Color.LIGHT_GRAY);
         
+
+  
+
+        JButton btnCreateInvoice = new JButton("Create Invoice");
+        btnCreateInvoice.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		CardLayout cardLayout = (CardLayout) viewCards.getLayout();
+        		EcoCreateInvoiceCard ECIC = new EcoCreateInvoiceCard();
+        		viewCards.add(ECIC, "ECIC");
+        		cardLayout.show(viewCards, "ECIC");
+        	}
+        });
+        btnCreateInvoice.setBounds(0, 37, 158, 29);
+        EKOmenuCard.add(btnCreateInvoice);
+
         JButton btnAllocate = new JButton("Allocate Resources");
         btnAllocate.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
@@ -274,7 +289,6 @@ public class GUIHome  {
         });
         btnAllocate.setBounds(0, 116, 158, 25);
         EKOmenuCard.add(btnAllocate);
-
         
 		CardLayout cardLayout = (CardLayout) viewCards.getLayout();
 		HomeDefaultCard HDC= new HomeDefaultCard();
@@ -306,6 +320,4 @@ public class GUIHome  {
         //Display the window.
         frame.setVisible(true);
     }
-     
-    
 }
