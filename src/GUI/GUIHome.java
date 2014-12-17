@@ -26,7 +26,7 @@ public class GUIHome  {
     	
     	
         JPanel mainMenuPane = new JPanel();
-        mainMenuPane.setBounds(13, 12, 153, 498);
+        mainMenuPane.setBounds(6, 12, 153, 793);
         mainMenuPane.setBackground(Color.LIGHT_GRAY);
         mainMenuPane.setLayout(null);
         
@@ -40,7 +40,7 @@ public class GUIHome  {
         viewCards.setBounds(323, 12, 867, 498);
         
         secondMenuCards = new JPanel(new CardLayout());
-        secondMenuCards.setBounds(166, 12, 158, 498);
+        secondMenuCards.setBounds(166, 12, 158, 865);
         secondMenuCards.setBackground(UIManager.getColor("Focus.color"));
         secondMenuCards.add(EKOmenuCard, "EKOmenuCard");
         
@@ -263,6 +263,12 @@ public class GUIHome  {
         EKOmenuCard.setBackground(Color.LIGHT_GRAY);
 
         
+		CardLayout cardLayout = (CardLayout) viewCards.getLayout();
+		HomeDefaultCard HDC= new HomeDefaultCard();
+		viewCards.add(HDC, "HDC");
+		cardLayout.show(viewCards, "HDC");
+        
+
     }
      
    
@@ -271,6 +277,7 @@ public class GUIHome  {
      * Create the GUI and show it.  For thread safety,
      * this method should be invoked from the
      * event dispatch thread.
+     * @wbp.parser.entryPoint
      */
      public static void createAndShowGUI() {
         //Create and set up the window.
