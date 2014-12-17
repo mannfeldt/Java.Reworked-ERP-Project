@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+		<typeAlias alias="User" type="objects.User" />
+		<typeAlias alias="Project" type="objects.Project" />
+		<typeAlias alias="PaymentIncoming" type="objects.PaymentIncoming" />
+		<typeAlias alias="Customer" type="objects.Customer" />
+		<typeAlias alias="Employee" type="objects.Employee" />
+		<typeAlias alias="Person" type="objects.Person" />
+		<typeAlias alias="Login" type="objects.Login" />
+
+
+
+	</typeAliases>
+
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<!-- connecting to Local MySql -->
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<property name="url"
+					value="jdbc:mysql://sql5.freesqldatabase.com:3306/sql561154" />
+				<property name="username" value="sql561154" />
+				<property name="password" value="mF7%zA8!" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<mapper resource="objects/Login.xml" />
+	</mappers>
+</configuration>
+
+
+
+
+
+<!-- <dataSource type="POOLED"> <property name="driver" value="com.mysql.jdbc.Driver"/> 
+	<property name="url" value="jdbc:mysql://localhost:3306/dod1304_AF"/> <property 
+	name="username" value="root"/> <property name="password" value="qweqwe123123"/> 
+	</dataSource> -->
+            

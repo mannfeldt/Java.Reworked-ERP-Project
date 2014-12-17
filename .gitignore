@@ -1,0 +1,14 @@
+/bin/
+
+#OSX Junk
+.DS_Store
+
+#Eclipse
+.classpath
+/nbproject/private/
+/build/
+
+#Netbeans
+build.xml
+manifest.mf
+nbproject/
