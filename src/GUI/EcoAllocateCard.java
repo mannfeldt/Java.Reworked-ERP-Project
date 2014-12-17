@@ -29,6 +29,7 @@ public class EcoAllocateCard extends JPanel {
 	DefaultListModel<User> ListModelUser;
 	EcoCreateAllocationController controller = new EcoCreateAllocationController();
 	private JTextField HourlyRateText;
+	boolean other=false;
 	/**
 	 * Create the panel.
 	 */
@@ -69,9 +70,16 @@ public class EcoAllocateCard extends JPanel {
 				//om other är valt så stängs boxen av och en text ruta öppnas istället
                 String selected = RoleBox.getSelectedItem().toString();
                 if(selected.equals("Other")){
+                	OtherRoleText.setText(" ");
                 	OtherRoleText.show(true);
                 	OtherLabel.show(true);
-                	RoleBox.enable(false);          	
+                	other = true;
+                	          	
+                }
+                else{
+                	OtherRoleText.show(false);
+                	OtherLabel.show(false);
+                	other=false;
                 }
 			}
 		});
@@ -94,7 +102,7 @@ public class EcoAllocateCard extends JPanel {
 		this.add(lblWorkLoad);
 		
 		JComboBox WorkLoadBox = new JComboBox();
-		WorkLoadBox.setBounds(376, 362, 43, 20);
+		WorkLoadBox.setBounds(376, 362, 55, 20);
 		this.add(WorkLoadBox);
 		WorkLoadBox.addItem("25");
 		WorkLoadBox.addItem("50");
@@ -185,7 +193,7 @@ public class EcoAllocateCard extends JPanel {
 				
 				String workload=WorkLoadBox.getSelectedItem().toString();
 				String hourlyrate=HourlyRateText.getText();
-				if(!RoleBox.isEnabled()){
+				if(other){
 					role=OtherRoleText.getText();
 					RoleBox.enable(true);
 					RoleBox.setSelectedIndex(0);
@@ -203,16 +211,9 @@ public class EcoAllocateCard extends JPanel {
 		});
 		this.add(AllocateButton);
 		
-		
-		JButton ResetButton = new JButton("Reset");
-		ResetButton.setBounds(282, 176, 227, 41);
-		ResetButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				
-			}
-		});
-		add(ResetButton);
+		JLabel label = new JLabel("%");
+		label.setBounds(434, 368, 55, 14);
+		add(label);
 
 	}
 }
