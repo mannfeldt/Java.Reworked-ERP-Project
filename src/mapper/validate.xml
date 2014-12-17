@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="validate">
+    
+    <select id="selectIfExists" parameterType="Login"
+        resultMap="userAuthorizationLevel">
+        SELECT COUNT(*) as isThere
+        FROM Logins
+        WHERE SSN = #{SSN}
+        AND
+        password = #{password}
+    </select>
+        
+    <resultMap id="userAuthorizationLevel" type="Login">
+        <result property="isThere" column="isThere" />
+    </resultMap>
+        
+    
+	
+    <insert id="insertLogin" parameterType="Login" useGeneratedKeys="false" keyProperty="SSN">
+        INSERT Logins (SSN,password,authorizationLevel)
+        VALUES(#{SSN}, #{password},
+        #{AuthorizationLevel});
+    </insert>
+	
+    
+
+    <update id="updateLogin" parameterType="User">
+        UPDATE Logins
+        SET
+        authorizationLevel = #{authorizationLevel}
+        WHERE SSN = #{SSN}
+    </update>
+
+    
+
+</mapper>

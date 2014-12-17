@@ -25,6 +25,8 @@ public class db_Mapper {
 	public db_Mapper(SqlSessionFactory sqlSessionFactory) {
 		this.sqlSessionFactory = sqlSessionFactory;
 	}
+        
+        
 	
 	public void insertNewUser(Person person, Employee employee, Login login) {
 		SqlSession session = sqlSessionFactory.openSession();
