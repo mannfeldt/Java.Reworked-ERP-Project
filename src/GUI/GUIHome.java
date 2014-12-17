@@ -6,7 +6,12 @@ package GUI;
  */
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
 import javax.swing.*;
+
 
  
 public class GUIHome  {
@@ -15,22 +20,15 @@ public class GUIHome  {
     final static String BUTTONPANEL = "BUTTONPANEL";
     final static String TEXTPANEL = "TEXTPANEL";
     private static JFrame frame;
+    
      
     public void addComponentToPane(Container pane) {
+    	
+    	
         JPanel mainMenuPane = new JPanel();
-        mainMenuPane.setBounds(13, 12, 153, 498);
+        mainMenuPane.setBounds(6, 12, 153, 793);
         mainMenuPane.setBackground(Color.LIGHT_GRAY);
         mainMenuPane.setLayout(null);
-         
-        //Create the "cards".
-        JPanel card1 = new JPanel();
-        card1.setBackground(Color.LIGHT_GRAY);
-        card1.add(new JButton("Button 1"));
-        card1.add(new JButton("Button 2"));
-        card1.add(new JButton("Button 3"));
-         
-        JPanel card2 = new JPanel();
-        card2.add(new JTextField("TextField", 20));
         
         JPanel EKOmenuCard = new JPanel();
         
@@ -40,11 +38,9 @@ public class GUIHome  {
          
         viewCards = new JPanel(new CardLayout());
         viewCards.setBounds(323, 12, 867, 498);
-        viewCards.add(card1, BUTTONPANEL);
-        viewCards.add(card2, TEXTPANEL);
         
         secondMenuCards = new JPanel(new CardLayout());
-        secondMenuCards.setBounds(166, 12, 158, 498);
+        secondMenuCards.setBounds(166, 12, 158, 865);
         secondMenuCards.setBackground(UIManager.getColor("Focus.color"));
         secondMenuCards.add(EKOmenuCard, "EKOmenuCard");
         
@@ -63,10 +59,26 @@ public class GUIHome  {
         secondMenuCards.add(HomeMenuCard, "homeMenuCard");
         
         JButton btnContactHrm = new JButton("Contact HRM");
+        btnContactHrm.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		CardLayout cardLayout = (CardLayout) viewCards.getLayout();
+        		ContactHRM CHRM = new ContactHRM();
+        		viewCards.add(CHRM, "CHRM");
+        		cardLayout.show(viewCards, "CHRM");
+        	}
+        });
         btnContactHrm.setBounds(0, 12, 158, 25);
         HomeMenuCard.add(btnContactHrm);
         
         JButton btnContactEconomy = new JButton("Contact Economy");
+        btnContactEconomy.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		CardLayout cardLayout = (CardLayout) viewCards.getLayout();
+        		ContactEKO CEKO = new ContactEKO();
+        		viewCards.add(CEKO, "CEKO");
+        		cardLayout.show(viewCards, "CEKO");
+        	}
+        });
         btnContactEconomy.setBounds(0, 38, 158, 25);
         HomeMenuCard.add(btnContactEconomy);
         secondMenuCards.add(HRmenuCard, "HRmenuCard");
@@ -179,7 +191,11 @@ public class GUIHome  {
          
         pane.add(mainMenuPane);
         
+        
+        Icon EkoIcon = new ImageIcon("source/images/ECO_logo.png");
         JButton btnEKOMenu = new JButton("Economy");
+        btnEKOMenu.setHorizontalAlignment(SwingConstants.LEFT);
+        btnEKOMenu.setIcon(EkoIcon);
         btnEKOMenu.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		CardLayout cardLayout = (CardLayout) secondMenuCards.getLayout();
@@ -189,14 +205,22 @@ public class GUIHome  {
         btnEKOMenu.setBounds(0, 38, 153, 25);
         mainMenuPane.add(btnEKOMenu);
         
-        JButton btnHRMenu = new JButton("Human Resources");
+        Icon HrmIcon = new ImageIcon("source/images/HRM_logo.png");
+        JButton btnHRMenu = new JButton("HRM");
+        btnHRMenu.setIcon(HrmIcon);
+        btnHRMenu.setHorizontalAlignment(SwingConstants.LEFT);
+
         btnHRMenu.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		CardLayout cardLayout = (CardLayout) secondMenuCards.getLayout();
         		cardLayout.show(secondMenuCards, "HRmenuCard");
         	}
         });
-        JButton btnHome = new JButton("Home");
+        
+        Icon HomeIcon = new ImageIcon("source/images/home_logo.png");
+        JButton btnHome= new JButton("Home");
+        btnHome.setIcon(HomeIcon);
+        btnHome.setHorizontalAlignment(SwingConstants.LEFT);
         btnHome.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		CardLayout cardLayout = (CardLayout) secondMenuCards.getLayout();
@@ -209,7 +233,10 @@ public class GUIHome  {
         btnHRMenu.setBounds(0, 64, 153, 25);
         mainMenuPane.add(btnHRMenu);
         
-        JButton btnConsultants = new JButton("Consultants");
+        Icon ConsultantIcon = new ImageIcon("source/images/Consultant_logo.png");
+        JButton btnConsultants= new JButton("Consultants");
+        btnConsultants.setIcon(ConsultantIcon);
+        btnConsultants.setHorizontalAlignment(SwingConstants.LEFT);
         btnConsultants.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		CardLayout cardLayout = (CardLayout) secondMenuCards.getLayout();
@@ -219,7 +246,11 @@ public class GUIHome  {
         btnConsultants.setBounds(0, 90, 153, 25);
         mainMenuPane.add(btnConsultants);
         
+        Icon AdminIcon = new ImageIcon("source/images/Admin_logo.png");
         JButton btnAdministration = new JButton("Administration");
+        btnAdministration.setIcon(AdminIcon);
+        btnAdministration.setHorizontalAlignment(SwingConstants.LEFT);
+        
         btnAdministration.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		CardLayout cardLayout = (CardLayout) secondMenuCards.getLayout();
@@ -244,6 +275,13 @@ public class GUIHome  {
         btnAllocate.setBounds(0, 116, 158, 25);
         EKOmenuCard.add(btnAllocate);
 
+        
+		CardLayout cardLayout = (CardLayout) viewCards.getLayout();
+		HomeDefaultCard HDC= new HomeDefaultCard();
+		viewCards.add(HDC, "HDC");
+		cardLayout.show(viewCards, "HDC");
+        
+
     }
      
    
@@ -252,8 +290,9 @@ public class GUIHome  {
      * Create the GUI and show it.  For thread safety,
      * this method should be invoked from the
      * event dispatch thread.
+     * @wbp.parser.entryPoint
      */
-    private static void createAndShowGUI() {
+     public static void createAndShowGUI() {
         //Create and set up the window.
         frame = new JFrame("Hyber");
         frame.setBounds(300, 100, 1200, 537);
@@ -268,29 +307,5 @@ public class GUIHome  {
         frame.setVisible(true);
     }
      
-    public static void main(String[] args) {
-        /* Use an appropriate Look and Feel */
-        try {
-            //UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-            UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
-        } catch (UnsupportedLookAndFeelException ex) {
-            ex.printStackTrace();
-        } catch (IllegalAccessException ex) {
-            ex.printStackTrace();
-        } catch (InstantiationException ex) {
-            ex.printStackTrace();
-        } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-        }
-        /* Turn off metal's use of bold fonts */
-        UIManager.put("swing.boldMetal", Boolean.FALSE);
-         
-        //Schedule a job for the event dispatch thread:
-        //creating and showing this application's GUI.
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI();
-            }
-        });
-    }
+    
 }

@@ -34,7 +34,8 @@
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource="objects/Login.xml" />
+		<mapper resource="mapper/Login.xml" />
+                <mapper resource="mapper/validate.xml"/>
 	</mappers>
 </configuration>
 

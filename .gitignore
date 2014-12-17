@@ -5,6 +5,7 @@
 
 #Eclipse
 .classpath
+.project
 /nbproject/private/
 /build/
 

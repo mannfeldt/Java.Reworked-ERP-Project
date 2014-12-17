@@ -26,6 +26,8 @@ public class db_Mapper {
 	public db_Mapper(SqlSessionFactory sqlSessionFactory) {
 		this.sqlSessionFactory = sqlSessionFactory;
 	}
+        
+        
 	
 	public void insertNewUser(Person person, Employee employee, Login login) {
 		SqlSession session = sqlSessionFactory.openSession();
@@ -171,7 +173,7 @@ public class db_Mapper {
 
 		} catch (PersistenceException e) {
 		
-			JOptionPane.showMessageDialog(null, "Employee is busy, too bad.",
+			JOptionPane.showMessageDialog(null, "Employee is already allocated to this project.",
 					"Employee not allocated", JOptionPane.ERROR_MESSAGE);
 
 		} finally {

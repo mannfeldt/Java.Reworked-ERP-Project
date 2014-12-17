@@ -14,7 +14,7 @@ public class MyBatisConnectionFactory {
     static {
         try {
  
-            String resource = "objects/config.xml";
+            String resource = "mapper/config.xml";
             Reader reader = Resources.getResourceAsReader(resource);
  
             if (sqlSessionFactory == null) {
