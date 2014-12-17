@@ -51,7 +51,15 @@ public class GUIHome  {
         
         JButton btnTimeReport = new JButton("Time report");
         btnTimeReport.setHorizontalAlignment(SwingConstants.LEFT);
-
+        btnTimeReport.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		CardLayout cardLayout = (CardLayout) viewCards.getLayout();
+        		ConTimeReport TimeReport = new ConTimeReport();
+        		viewCards.add(TimeReport, "TMR");
+        		cardLayout.show(viewCards, "TMR");
+        	}
+        });
+        
         btnTimeReport.setBounds(0, 12, 158, 25);
         consultantMenuCard.add(btnTimeReport);
         
