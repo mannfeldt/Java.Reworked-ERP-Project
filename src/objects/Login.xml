@@ -50,6 +50,17 @@
 		<result property="accountNumber" column="accountNumber" />
 		<result property="authorizationLevel" column="authorizationLevel" />
 	</resultMap>
+	
+		<resultMap id="AllProjects" type="Project">
+		<result property="actualCost" column="actualCost" />
+		<result property="actualStart" column="actualStart" />
+		<result property="actualStop" column="actualStop" />
+		<result property="estimatedCost" column="estimatedCost" />
+		<result property="estimatedStart" column="estimatedStart" />
+		<result property="estimatedStop" column="estimatedStop" />
+		<result property="organisationNumber" column="organisationNumber" />
+		<result property="projectNumber" column="projectNumber" />
+	</resultMap>
 
 
 	<insert id="insertPerson" parameterType="Person"
@@ -156,6 +167,20 @@
 	<select id="selectAllCustomers" resultMap="Customers">
 		SELECT *
 		FROM Customers
+	</select>
+	
+	<insert id="insertallocation" parameterType="ProjectMember"
+		useGeneratedKeys="false" keyProperty="SSN">
+		INSERT ProjectMembers
+		(hourlyRate,projectNumber,role,SSN,workload)
+		VALUES(#{hourlyRate},#{projectNumber},#{role},#{SSN},#{workload});
+	</insert>
+	
+		<select id="selectEveryProject" parameterType="Project"
+		resultMap="AllProjects">
+		SELECT *
+		FROM Projects
+		
 	</select>
 
 

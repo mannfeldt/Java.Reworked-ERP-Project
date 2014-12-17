@@ -230,6 +230,19 @@ public class GUIHome  {
         mainMenuPane.add(btnAdministration);
         pane.add(viewCards);
         EKOmenuCard.setBackground(Color.LIGHT_GRAY);
+        
+        JButton btnAllocate = new JButton("Allocate Resources");
+        btnAllocate.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		
+        		CardLayout cardLayout = (CardLayout) viewCards.getLayout();
+        		EcoAllocateCard EAC= new EcoAllocateCard();
+        		viewCards.add(EAC, "EAC");
+        		cardLayout.show(viewCards, "EAC");
+        	}
+        });
+        btnAllocate.setBounds(0, 116, 158, 25);
+        EKOmenuCard.add(btnAllocate);
 
     }
      

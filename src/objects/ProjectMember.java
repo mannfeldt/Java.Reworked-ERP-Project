@@ -2,7 +2,7 @@ package objects;
 
 public class ProjectMember {
 	private String SSN;
-	private Integer projectNumber;
+	private String projectNumber;
 	private String role;
 	private String hourlyRate;
 	private String workload;
@@ -13,10 +13,10 @@ public class ProjectMember {
 	public void setSSN(String sSN) {
 		SSN = sSN;
 	}
-	public Integer getProjectNumber() {
+	public String getProjectNumber() {
 		return projectNumber;
 	}
-	public void setProjectNumber(Integer projectNumber) {
+	public void setProjectNumber(String projectNumber) {
 		this.projectNumber = projectNumber;
 	}
 	public String getRole() {

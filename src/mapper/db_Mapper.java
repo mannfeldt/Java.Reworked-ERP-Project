@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import objects.ProjectMember;
 import objects.Login;
 import objects.Person;
 import objects.Employee;
@@ -144,6 +145,40 @@ public class db_Mapper {
 			session.close();
 		}
 		return list;
+	}
+	public List<Project> getAllProjects() {
+		List<Project> list = null;
+		SqlSession session = sqlSessionFactory.openSession();
+		
+		try{
+			//continue with this in login.xml. create method selectallprojects
+			list = session.selectList("Login.selectEveryProject");
+		}finally{
+			session.close();
+		}
+		return list;
+	}
+
+	public void insertNewAllocation(objects.ProjectMember member) {
+
+		SqlSession session = sqlSessionFactory.openSession();
+
+		try {
+			session.insert("Login.insertallocation", member);
+			JOptionPane.showMessageDialog(null,
+					"Successfully added allocation to project: "+member.getProjectNumber(), "New allocation",
+					JOptionPane.PLAIN_MESSAGE);
+
+		} catch (PersistenceException e) {
+		
+			JOptionPane.showMessageDialog(null, "Employee is busy, too bad.",
+					"Employee not allocated", JOptionPane.ERROR_MESSAGE);
+
+		} finally {
+			session.commit();
+			session.close();
+		}
+		
 	}
 	
 }

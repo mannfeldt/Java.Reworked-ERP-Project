@@ -12,6 +12,9 @@
 		<typeAlias alias="Employee" type="objects.Employee" />
 		<typeAlias alias="Person" type="objects.Person" />
 		<typeAlias alias="Login" type="objects.Login" />
+		<typeAlias alias="ProjectMember" type="objects.ProjectMember" />
+		<typeAlias alias="TimeReport" type="objects.TimeReport" />
+		<typeAlias alias="Customer" type="objects.Customer" />
 
 
 

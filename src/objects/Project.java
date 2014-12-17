@@ -60,12 +60,7 @@ public class Project {
 	}
 	
 	public String toString() {
-		return "Project [projectNumber=" + projectNumber
-				+ ", organisationNumber=" + organisationNumber
-				+ ", estimatedStart=" + estimatedStart + ", estimatedStop="
-				+ estimatedStop + ", actualStart=" + actualStart
-				+ ", actualStop=" + actualStop + ", estimatedCost="
-				+ estimatedCost + ", actualCost=" + actualCost + "]";
+		return projectNumber +" - "+ estimatedStart + " - " + estimatedCost;
 	}
 	
 	
