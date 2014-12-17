@@ -7,9 +7,12 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 
 import controllers.AdminNewUserCardController;
+import controllers.TextFieldLimit;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class AdminNewUserCard extends JPanel {
 	private JTextField txtSSN;
@@ -28,21 +31,39 @@ public class AdminNewUserCard extends JPanel {
 		txtSSN.setBounds(141, 6, 134, 28);
 		txtSSN.setColumns(10);
 		add(txtSSN);
+		txtSSN.setDocument(new TextFieldLimit(12));
+		
+		txtSSN.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				char i = arg0.getKeyChar();
+				if(!(Character.isDigit(i)||(i==KeyEvent.VK_BACK_SPACE)|| i==KeyEvent.VK_DELETE ))
+				{
+					getToolkit().beep();
+					arg0.consume();
+				}
+			}
+		});
+
 		
 		txtFirstName = new JTextField();
 		txtFirstName.setBounds(141, 43, 134, 28);
 		txtFirstName.setColumns(10);
 		add(txtFirstName);
+		txtFirstName.setDocument(new TextFieldLimit(10));
+		
 		
 		txtLastName = new JTextField();
 		txtLastName.setBounds(141, 80, 134, 28);
 		txtLastName.setColumns(10);
 		add(txtLastName);
+		txtLastName.setDocument(new TextFieldLimit(10));
 		
 		txtPassword = new JTextField();
 		txtPassword.setBounds(141, 117, 134, 28);
 		txtPassword.setColumns(10);
 		add(txtPassword);
+		txtPassword.setDocument(new TextFieldLimit(10));
 		
 		comboBox = new JComboBox<String>();
 		comboBox.setBounds(141, 154, 134, 27);
