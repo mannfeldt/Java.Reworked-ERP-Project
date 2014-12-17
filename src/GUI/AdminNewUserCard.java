@@ -50,14 +50,14 @@ public class AdminNewUserCard extends JPanel {
 		txtFirstName.setBounds(141, 43, 134, 28);
 		txtFirstName.setColumns(10);
 		add(txtFirstName);
-		txtFirstName.setDocument(new TextFieldLimit(10));
+		txtFirstName.setDocument(new TextFieldLimit(20));
 		
 		
 		txtLastName = new JTextField();
 		txtLastName.setBounds(141, 80, 134, 28);
 		txtLastName.setColumns(10);
 		add(txtLastName);
-		txtLastName.setDocument(new TextFieldLimit(10));
+		txtLastName.setDocument(new TextFieldLimit(20));
 		
 		txtPassword = new JTextField();
 		txtPassword.setBounds(141, 117, 134, 28);

@@ -7,23 +7,32 @@ import javax.swing.JComboBox;
 import javax.swing.JButton;
 
 import controllers.EcoCreateProjectCardController;
+import controllers.TextFieldLimit;
 import objects.Customer;
 import objects.ProjectMember;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import com.toedter.calendar.JDateChooser;
 
 public class EcoCreateProjectCard extends JPanel {
 
 	private EcoCreateProjectCardController Controller;
-
+	private JDateChooser dateChooserprojectstart;
+	private JDateChooser dateChooserprojectstop;
+	
+	private DateFormat df = DateFormat.getDateInstance();
+	private Date datenow =new Date();
 	protected static final JComboBox CustomerList = null;
 	private JTextField txtEstCost;
 	private JTextField txtProjNumber;
-	private JTextField txtStopDate;
-	private JTextField txtStartDate;
 	private JComboBox comboBox;
 
 	private List<Customer> customerList;
@@ -37,11 +46,26 @@ public class EcoCreateProjectCard extends JPanel {
 		txtEstCost.setBounds(124, 57, 134, 28);
 		txtEstCost.setColumns(10);
 		add(txtEstCost);
+		txtEstCost.setDocument(new TextFieldLimit(10));
+
+		txtEstCost.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				char i = arg0.getKeyChar();
+				if(!(Character.isDigit(i)||(i==KeyEvent.VK_BACK_SPACE)|| i==KeyEvent.VK_DELETE ))
+				{
+					getToolkit().beep();
+					arg0.consume();
+				}
+			}
+		});
+
 
 		txtProjNumber = new JTextField();
 		txtProjNumber.setBounds(124, 97, 134, 28);
 		txtProjNumber.setColumns(10);
 		add(txtProjNumber);
+		txtProjNumber.setDocument(new TextFieldLimit(6));
 
 		JLabel label = new JLabel("Estimated cost");
 		label.setBounds(19, 67, 93, 16);
@@ -50,20 +74,10 @@ public class EcoCreateProjectCard extends JPanel {
 		JLabel label_1 = new JLabel("Start date");
 		label_1.setBounds(19, 147, 60, 16);
 		add(label_1);
-
-		txtStopDate = new JTextField();
-		txtStopDate.setBounds(124, 177, 134, 28);
-		txtStopDate.setColumns(10);
-		add(txtStopDate);
-
+		
 		JLabel label_2 = new JLabel("Stop date");
 		label_2.setBounds(19, 187, 59, 16);
 		add(label_2);
-
-		txtStartDate = new JTextField();
-		txtStartDate.setBounds(124, 137, 134, 28);
-		txtStartDate.setColumns(10);
-		add(txtStartDate);
 
 		JLabel label_3 = new JLabel("Project number");
 		label_3.setBounds(19, 107, 95, 16);
@@ -86,8 +100,8 @@ public class EcoCreateProjectCard extends JPanel {
 				n = (Customer) comboBox.getSelectedItem();
 				String customerNumber = n.getOrganisationNumber();
 				String estimatedCost = txtEstCost.getText();
-				String estimatedStart = txtStartDate.getText();
-				String estimatedStop = txtStopDate.getText();
+				String estimatedStart = df.format(dateChooserprojectstart.getDate());
+				String estimatedStop = df.format(dateChooserprojectstop.getDate());
 				String projectNumber = txtProjNumber.getText();
 
 				Controller.CreateProject(customerNumber, estimatedCost,
@@ -100,7 +114,18 @@ public class EcoCreateProjectCard extends JPanel {
 		JLabel label_4 = new JLabel("Costumer");
 		label_4.setBounds(19, 27, 61, 16);
 		add(label_4);
+		
+		dateChooserprojectstart = new JDateChooser();
+		dateChooserprojectstart.setBounds(124, 147, 169, 20);
+		add(dateChooserprojectstart);
+		dateChooserprojectstart.setDate(datenow);
+		((JTextField)dateChooserprojectstart.getDateEditor().getUiComponent()).setEditable(false); 
+		
+		dateChooserprojectstop = new JDateChooser();
+		dateChooserprojectstop.setBounds(124, 183, 169, 20);
+		add(dateChooserprojectstop);
+		dateChooserprojectstop.setDate(datenow);
+		((JTextField)dateChooserprojectstop.getDateEditor().getUiComponent()).setEditable(false); 
 
 	}
-
 }

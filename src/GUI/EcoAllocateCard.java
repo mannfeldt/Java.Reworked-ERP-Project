@@ -55,6 +55,7 @@ public class EcoAllocateCard extends JPanel {
 		add(OtherRoleText);
 		OtherRoleText.setColumns(10);
 		OtherRoleText.show(false);
+		OtherRoleText.setDocument(new TextFieldLimit(10));
 		
 		JLabel OtherLabel = new JLabel("Other Role");
 		OtherLabel.setBounds(444, 154, 84, 14);
@@ -150,6 +151,20 @@ public class EcoAllocateCard extends JPanel {
 		HourlyRateText.setText("323, 12, 867, 498");
 		HourlyRateText.setColumns(10);
 		this.add(HourlyRateText);
+		HourlyRateText.setDocument(new TextFieldLimit(10));
+		
+		HourlyRateText.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				char i = arg0.getKeyChar();
+				if(!(Character.isDigit(i)||(i==KeyEvent.VK_BACK_SPACE)|| i==KeyEvent.VK_DELETE ))
+				{
+					getToolkit().beep();
+					arg0.consume();
+				}
+			}
+		});
+		
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
 		scrollPane_1.setBounds(20, 49, 256, 438);
@@ -161,6 +176,7 @@ public class EcoAllocateCard extends JPanel {
 		ConsultantList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		ConsultantList.setModel(ListModelUser);
 		ConsultantList.setSize(200, 250);
+		ConsultantList.setSelectedIndex(0);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(231, 49, 272, 438);
@@ -172,6 +188,7 @@ public class EcoAllocateCard extends JPanel {
 		ProjectList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		ProjectList.setModel(ListModelProject); 
 		ProjectList.setSize(200, 250);
+		ProjectList.setSelectedIndex(0);
 		
 		JButton AllocateButton = new JButton("Allocate Resource");
 		AllocateButton.setBounds(538, 276, 133, 23);

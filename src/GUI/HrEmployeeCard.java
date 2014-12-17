@@ -12,17 +12,25 @@ import javax.swing.JScrollPane;
 import objects.User;
 
 import java.awt.Color;
+import java.text.DateFormat;
 import java.util.List;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 import javax.swing.event.ListSelectionListener;
 import javax.swing.event.ListSelectionEvent;
 
 import controllers.HrEmployeeCardController;
+import controllers.TextFieldLimit;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
+import com.toedter.calendar.JDateChooser;
 
 public class HrEmployeeCard extends JPanel {
 	/**
@@ -39,7 +47,7 @@ public class HrEmployeeCard extends JPanel {
 	private JComboBox<String> cmbAuthorization;
 	private JTextField txtSSN;
 	private JTextField txtFirstName;
-	private JTextField txtDateOfEmployement;
+	private JTextField emptext;
 	private JTextField txtLastname;
 	private JTextField txtWage;
 	private JTextField txtCountry;
@@ -50,6 +58,10 @@ public class HrEmployeeCard extends JPanel {
 	private JTextField txtStreet;
 	private JTextField txtAccountnr;
 	private JTextField txtPhone;
+    private JDateChooser dateChooserEmp;//updated //U*
+	private DateFormat df = DateFormat.getDateInstance();
+
+
 
 	public HrEmployeeCard() {
 		addComponentListener(new ComponentAdapter() {
@@ -65,7 +77,7 @@ public class HrEmployeeCard extends JPanel {
 		setLayout(null);
 
 		JLabel lblSsn = new JLabel("SSN");
-		lblSsn.setBounds(113, 11, 28, 16);
+		lblSsn.setBounds(20, 11, 28, 16);
 		add(lblSsn);
 
 		JButton button = new JButton("Update");
@@ -74,130 +86,189 @@ public class HrEmployeeCard extends JPanel {
 				updateUser();
 			}
 		});
-		button.setBounds(299, 6, 88, 29);
+		button.setBounds(341, 267, 200, 29);
 		add(button);
 
 		JLabel label_1 = new JLabel("Firstname");
-		label_1.setBounds(79, 40, 62, 16);
+		label_1.setBounds(20, 38, 62, 16);
 		add(label_1);
 
 		JLabel label_2 = new JLabel("Lastname");
-		label_2.setBounds(81, 69, 60, 16);
+		label_2.setBounds(20, 65, 60, 16);
 		add(label_2);
 
 		JLabel label_3 = new JLabel("Street");
-		label_3.setBounds(105, 156, 36, 16);
+		label_3.setBounds(20, 152, 36, 16);
 		add(label_3);
 
 		JLabel label_4 = new JLabel("Phone");
-		label_4.setBounds(103, 214, 38, 16);
+		label_4.setBounds(20, 212, 38, 16);
 		add(label_4);
 
 		JLabel label_5 = new JLabel("Email");
-		label_5.setBounds(107, 243, 34, 16);
+		label_5.setBounds(20, 239, 34, 16);
 		add(label_5);
 
 		txtFirstName = new JTextField();
-		txtFirstName.setBounds(153, 35, 134, 28);
+		txtFirstName.setBounds(137, 35, 151, 28);
 		txtFirstName.setColumns(10);
 		add(txtFirstName);
+		txtFirstName.setDocument(new TextFieldLimit(20));
 
 		txtSSN = new JTextField();
 		txtSSN.setEditable(false);
-		txtSSN.setBounds(153, 6, 134, 28);
+		txtSSN.setBounds(137, 6, 151, 28);
 		txtSSN.setColumns(10);
 		add(txtSSN);
 
-		txtDateOfEmployement = new JTextField();
-		txtDateOfEmployement.setBounds(153, 325, 134, 28);
-		txtDateOfEmployement.setColumns(10);
-		add(txtDateOfEmployement);
+		emptext = new JTextField();
+		emptext.setEditable(false);
+		emptext.setBounds(137, 325, 151, 28);
+		emptext.setColumns(10);
+		add(emptext);
 
 		txtLastname = new JTextField();
-		txtLastname.setBounds(153, 64, 134, 28);
+		txtLastname.setBounds(137, 64, 151, 28);
 		txtLastname.setColumns(10);
 		add(txtLastname);
+		txtLastname.setDocument(new TextFieldLimit(20));
 
 		txtWage = new JTextField();
-		txtWage.setBounds(153, 267, 134, 28);
+		txtWage.setBounds(137, 267, 151, 28);
 		txtWage.setColumns(10);
 		add(txtWage);
+		txtWage.setDocument(new TextFieldLimit(6));
+		
+		txtWage.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				char i = arg0.getKeyChar();
+				if(!(Character.isDigit(i)||(i==KeyEvent.VK_BACK_SPACE)|| i==KeyEvent.VK_DELETE ))
+				{
+					getToolkit().beep();
+					arg0.consume();
+				}
+			}
+		});
 
 		txtCountry = new JTextField();
-		txtCountry.setBounds(153, 93, 134, 28);
+		txtCountry.setBounds(137, 93, 151, 28);
 		txtCountry.setColumns(10);
 		add(txtCountry);
+		txtCountry.setDocument(new TextFieldLimit(20));
 
 		txtPassword = new JTextField();
 		txtPassword.setEditable(false);
-		txtPassword.setBounds(153, 354, 134, 28);
+		txtPassword.setBounds(137, 354, 151, 28);
 		txtPassword.setColumns(10);
 		add(txtPassword);
 
 		JLabel label_6 = new JLabel("City");
-		label_6.setBounds(116, 127, 25, 16);
+		label_6.setBounds(20, 123, 25, 16);
 		add(label_6);
 
 		JLabel label_7 = new JLabel("Country");
-		label_7.setBounds(91, 98, 50, 16);
+		label_7.setBounds(20, 94, 50, 16);
 		add(label_7);
 
 		txtCity = new JTextField();
-		txtCity.setBounds(153, 122, 134, 28);
+		txtCity.setBounds(137, 122, 151, 28);
 		txtCity.setColumns(10);
 		add(txtCity);
+		txtCity.setDocument(new TextFieldLimit(10));
 
 		JLabel label_8 = new JLabel("ZipCode");
-		label_8.setBounds(89, 185, 52, 16);
+		label_8.setBounds(20, 181, 52, 16);
 		add(label_8);
 
 		txtEmail = new JTextField();
-		txtEmail.setBounds(153, 238, 134, 28);
+		txtEmail.setBounds(137, 238, 151, 28);
 		txtEmail.setColumns(10);
 		add(txtEmail);
+		txtEmail.setDocument(new TextFieldLimit(20));
 
 		JLabel label_9 = new JLabel("Date of Employement");
-		label_9.setBounds(6, 330, 135, 16);
+		label_9.setBounds(20, 326, 135, 16);
 		add(label_9);
 
 		txtZipCode = new JTextField();
-		txtZipCode.setBounds(153, 180, 134, 28);
+		txtZipCode.setBounds(137, 180, 151, 28);
 		txtZipCode.setColumns(10);
 		add(txtZipCode);
+		txtZipCode.setDocument(new TextFieldLimit(10));
+		
+		txtZipCode.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				char i = arg0.getKeyChar();
+				if(!(Character.isDigit(i)||(i==KeyEvent.VK_BACK_SPACE)|| i==KeyEvent.VK_DELETE ))
+				{
+					getToolkit().beep();
+					arg0.consume();
+				}
+			}
+		});
 
 		JLabel label_10 = new JLabel("Wage");
-		label_10.setBounds(108, 272, 33, 16);
+		label_10.setBounds(20, 268, 33, 16);
 		add(label_10);
 
 		txtStreet = new JTextField();
-		txtStreet.setBounds(153, 151, 134, 28);
+		txtStreet.setBounds(137, 151, 151, 28);
 		txtStreet.setColumns(10);
 		add(txtStreet);
+		txtStreet.setDocument(new TextFieldLimit(20));
 
 		JLabel label_11 = new JLabel("Accountnr");
-		label_11.setBounds(76, 301, 65, 16);
+		label_11.setBounds(20, 294, 65, 16);
 		add(label_11);
 
 		txtAccountnr = new JTextField();
-		txtAccountnr.setBounds(153, 296, 134, 28);
+		txtAccountnr.setBounds(137, 296, 151, 28);
 		txtAccountnr.setColumns(10);
 		add(txtAccountnr);
+		txtAccountnr.setDocument(new TextFieldLimit(10));
+		
+		txtAccountnr.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				char i = arg0.getKeyChar();
+				if(!(Character.isDigit(i)||(i==KeyEvent.VK_BACK_SPACE)|| i==KeyEvent.VK_DELETE ))
+				{
+					getToolkit().beep();
+					arg0.consume();
+				}
+			}
+		});
 
 		JLabel label_12 = new JLabel("Password");
-		label_12.setBounds(82, 359, 59, 16);
+		label_12.setBounds(20, 355, 59, 16);
 		add(label_12);
 
 		txtPhone = new JTextField();
-		txtPhone.setBounds(153, 209, 134, 28);
+		txtPhone.setBounds(137, 209, 151, 28);
 		txtPhone.setColumns(10);
 		add(txtPhone);
+		txtPhone.setDocument(new TextFieldLimit(20));
+		
+		txtPhone.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				char i = arg0.getKeyChar();
+				if(!(Character.isDigit(i)||(i==KeyEvent.VK_BACK_SPACE)|| i==KeyEvent.VK_DELETE ))
+				{
+					getToolkit().beep();
+					arg0.consume();
+				}
+			}
+		});
 
 		JLabel label_13 = new JLabel("Authorization");
-		label_13.setBounds(53, 387, 86, 16);
+		label_13.setBounds(20, 382, 86, 16);
 		add(label_13);
 
 		cmbAuthorization = new JComboBox<String>();
-		cmbAuthorization.setBounds(150, 385, 138, 27);
+		cmbAuthorization.setBounds(134, 385, 154, 27);
 		add(cmbAuthorization);
 		cmbAuthorization.addItem("Consultant");
 		cmbAuthorization.addItem("Economy user");
@@ -206,8 +277,9 @@ public class HrEmployeeCard extends JPanel {
 		cmbAuthorization.addItem("Management");
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(409, 11, 278, 473);
+		scrollPane.setBounds(341, 6, 278, 473);
 		add(scrollPane);
+		scrollPane.setSize(200, 250);
 
 		list = new JList<User>();
 		list.addListSelectionListener(new ListSelectionListener() {
@@ -218,8 +290,30 @@ public class HrEmployeeCard extends JPanel {
 		allUsersModel = new DefaultListModel<User>();
 		list.setModel(allUsersModel);
 		scrollPane.setViewportView(list);
-		
+		list.setSize(200,250);
 		list.setSelectedIndex(0);
+		
+		dateChooserEmp = new JDateChooser();
+		dateChooserEmp.setBounds(291, 325, 25, 20);
+		add(dateChooserEmp);
+		((JTextField)dateChooserEmp.getDateEditor().getUiComponent()).setEditable(false);
+		
+		dateChooserEmp.getDateEditor().addPropertyChangeListener(
+			    new PropertyChangeListener() {
+			        @Override
+			        public void propertyChange(PropertyChangeEvent e) {
+			            if ("date".equals(e.getPropertyName())) {
+			            	String date = emptext.getText();
+			        		
+			        		if(dateChooserEmp.getDate()==null){
+			        			date=emptext.getText();
+			        		}else{
+			        			date= df.format(dateChooserEmp.getDate());	
+			        		}
+			        		emptext.setText(date);
+			            }
+			        }
+			    });
 
 	}
 	private void updateFields() {
@@ -234,7 +328,7 @@ public class HrEmployeeCard extends JPanel {
 			txtZipCode.setText(user.getZipCode());
 			txtSSN.setText(user.getSSN());
 			txtWage.setText(user.getWage());
-			txtDateOfEmployement.setText(user.getEmployeeDate());
+			emptext.setText(user.getEmployeeDate());
 			txtEmail.setText(user.getEmail());
 			txtAccountnr.setText(user.getAccountNumber());
 			txtPhone.setText(user.getPhoneNumber());
@@ -283,7 +377,16 @@ public class HrEmployeeCard extends JPanel {
 		newUser.setCountry(txtCountry.getText());
 		newUser.setZipCode(txtZipCode.getText());
 		newUser.setWage(txtWage.getText());
-		newUser.setEmployeeDate(txtDateOfEmployement.getText());
+		
+		String date=emptext.getText();
+		
+		if(dateChooserEmp.getDate()==null){
+			date=emptext.getText();
+		}else{
+			date= df.format(dateChooserEmp.getDate());	
+		}
+		newUser.setEmployeeDate(date);
+		
 		newUser.setEmail(txtEmail.getText());
 		newUser.setAccountNumber(txtAccountnr.getText());
 		newUser.setPhoneNumber(txtPhone.getText());
@@ -294,5 +397,4 @@ public class HrEmployeeCard extends JPanel {
 		allUsersModel.removeAllElements();
 		getAllusers();
 	}
-
 }
