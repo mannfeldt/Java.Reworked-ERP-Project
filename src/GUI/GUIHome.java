@@ -50,6 +50,8 @@ public class GUIHome  {
         secondMenuCards.add(consultantMenuCard, "consultantMenuCard");
         
         JButton btnTimeReport = new JButton("Time report");
+        btnTimeReport.setHorizontalAlignment(SwingConstants.LEFT);
+
         btnTimeReport.setBounds(0, 12, 158, 25);
         consultantMenuCard.add(btnTimeReport);
         
@@ -59,6 +61,7 @@ public class GUIHome  {
         secondMenuCards.add(HomeMenuCard, "homeMenuCard");
         
         JButton btnContactHrm = new JButton("Contact HRM");
+        btnContactHrm.setHorizontalAlignment(SwingConstants.LEFT);
         btnContactHrm.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		CardLayout cardLayout = (CardLayout) viewCards.getLayout();
@@ -71,6 +74,7 @@ public class GUIHome  {
         HomeMenuCard.add(btnContactHrm);
         
         JButton btnContactEconomy = new JButton("Contact Economy");
+        btnContactEconomy.setHorizontalAlignment(SwingConstants.LEFT);
         btnContactEconomy.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		CardLayout cardLayout = (CardLayout) viewCards.getLayout();
@@ -85,6 +89,7 @@ public class GUIHome  {
         HRmenuCard.setLayout(null);
         
         JButton btnProjects = new JButton("Projects");
+        btnProjects.setHorizontalAlignment(SwingConstants.LEFT);
         btnProjects.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		CardLayout cardLayout = (CardLayout) viewCards.getLayout();
@@ -97,6 +102,7 @@ public class GUIHome  {
         HRmenuCard.add(btnProjects);
         
         JButton btnEmployees = new JButton("Employees");
+        btnEmployees.setHorizontalAlignment(SwingConstants.LEFT);
         btnEmployees.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {        		
         		CardLayout cardLayout = (CardLayout) viewCards.getLayout();
@@ -125,6 +131,8 @@ public class GUIHome  {
         EKOmenuCard.setLayout(null);
         
         JButton btnNewButton_1 = new JButton("Create Project");
+        btnNewButton_1.setHorizontalAlignment(SwingConstants.LEFT);
+
         btnNewButton_1.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		CardLayout cardLayout = (CardLayout) viewCards.getLayout();
@@ -137,6 +145,7 @@ public class GUIHome  {
         EKOmenuCard.add(btnNewButton_1);
         
         JButton btnInvoiceOverview = new JButton("Invoice Overview");
+        btnInvoiceOverview.setHorizontalAlignment(SwingConstants.LEFT);
         btnInvoiceOverview.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		CardLayout cardLayout = (CardLayout) viewCards.getLayout();
@@ -149,6 +158,7 @@ public class GUIHome  {
         EKOmenuCard.add(btnInvoiceOverview);
         
         JButton btnWages = new JButton("Wages");
+        btnWages.setHorizontalAlignment(SwingConstants.LEFT);
         btnWages.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		CardLayout cardLayout = (CardLayout) viewCards.getLayout();
@@ -161,6 +171,7 @@ public class GUIHome  {
         EKOmenuCard.add(btnWages);
         
         JButton btnSendEmail = new JButton("Send email");
+        btnSendEmail.setHorizontalAlignment(SwingConstants.LEFT);
         btnSendEmail.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		CardLayout cardLayout = (CardLayout) viewCards.getLayout();
@@ -169,7 +180,7 @@ public class GUIHome  {
         		cardLayout.show(viewCards, "EEC");
         	}
         });
-        btnSendEmail.setBounds(0, 140, 158, 25);
+        btnSendEmail.setBounds(0, 141, 158, 25);
         EKOmenuCard.add(btnSendEmail);
         
         JPanel adminMenuCard = new JPanel();
@@ -178,6 +189,7 @@ public class GUIHome  {
         secondMenuCards.add(adminMenuCard, "adminMenuCard");
         
         JButton btnNewUser = new JButton("New User");
+        btnNewUser.setHorizontalAlignment(SwingConstants.LEFT);
         btnNewUser.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		CardLayout cardLayout = (CardLayout) viewCards.getLayout();
@@ -217,7 +229,7 @@ public class GUIHome  {
         	}
         });
         
-        Icon HomeIcon = new ImageIcon("source/images/home_logo.png");
+        Icon HomeIcon = new ImageIcon("source/images/home_logo2.png");
         JButton btnHome= new JButton("Home");
         btnHome.setIcon(HomeIcon);
         btnHome.setHorizontalAlignment(SwingConstants.LEFT);
@@ -266,6 +278,7 @@ public class GUIHome  {
   
 
         JButton btnCreateInvoice = new JButton("Create Invoice");
+        btnCreateInvoice.setHorizontalAlignment(SwingConstants.LEFT);
         btnCreateInvoice.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		CardLayout cardLayout = (CardLayout) viewCards.getLayout();
@@ -278,6 +291,7 @@ public class GUIHome  {
         EKOmenuCard.add(btnCreateInvoice);
 
         JButton btnAllocate = new JButton("Allocate Resources");
+        btnAllocate.setHorizontalAlignment(SwingConstants.LEFT);
         btnAllocate.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
         		

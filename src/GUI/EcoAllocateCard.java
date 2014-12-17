@@ -57,41 +57,48 @@ public class EcoAllocateCard extends JPanel {
 		OtherRoleText.show(false);
 		OtherRoleText.setDocument(new TextFieldLimit(10));
 		
-		JLabel OtherLabel = new JLabel("Other Role");
-		OtherLabel.setBounds(444, 154, 84, 14);
+		final JLabel OtherLabel = new JLabel("Other Role");
+		OtherLabel.setBounds(282, 427, 84, 14);
 		add(OtherLabel);
 		OtherLabel.show(false);
 		
-		JComboBox RoleBox = new JComboBox();
-		RoleBox.setBounds(538, 120, 133, 20);
-		RoleBox.addActionListener(new ActionListener() {
+		final JComboBox RoleBox = new JComboBox();
+		RoleBox.setBounds(376, 393, 133, 20);
+		final JLabel OtherLabel1 = new JLabel("Other Role");
+		OtherLabel1.setBounds(444, 154, 84, 14);
+		add(OtherLabel1);
+		OtherLabel1.show(false);
+		
+		final JComboBox RoleBox1 = new JComboBox();
+		RoleBox1.setBounds(538, 120, 133, 20);
+		RoleBox1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				
 				//om other är valt så stängs boxen av och en text ruta öppnas istället
-                String selected = RoleBox.getSelectedItem().toString();
+                String selected = RoleBox1.getSelectedItem().toString();
                 if(selected.equals("Other")){
                 	OtherRoleText.setText(" ");
                 	OtherRoleText.show(true);
-                	OtherLabel.show(true);
+                	OtherLabel1.show(true);
                 	other = true;
                 	          	
                 }
                 else{
                 	OtherRoleText.show(false);
-                	OtherLabel.show(false);
+                	OtherLabel1.show(false);
                 	other=false;
                 }
 			}
 		});
-		this.add(RoleBox);
-		RoleBox.addItem("Business analyst");
-		RoleBox.addItem("Projekt ledare");
-		RoleBox.addItem("Scrum master");
-		RoleBox.addItem("Process manager");
-		RoleBox.addItem("Development manager");
-		RoleBox.addItem("Quality coordinator");
-		RoleBox.addItem("Other");
+		this.add(RoleBox1);
+		RoleBox1.addItem("Business analyst");
+		RoleBox1.addItem("Projekt ledare");
+		RoleBox1.addItem("Scrum master");
+		RoleBox1.addItem("Process manager");
+		RoleBox1.addItem("Development manager");
+		RoleBox1.addItem("Quality coordinator");
+		RoleBox1.addItem("Other");
 		
 		
 		JLabel lblProjectRole = new JLabel("Project Role");
@@ -102,13 +109,15 @@ public class EcoAllocateCard extends JPanel {
 		lblWorkLoad.setBounds(445, 92, 83, 14);
 		this.add(lblWorkLoad);
 		
-		JComboBox WorkLoadBox = new JComboBox();
-		WorkLoadBox.setBounds(538, 89, 55, 20);
-		this.add(WorkLoadBox);
-		WorkLoadBox.addItem("25");
-		WorkLoadBox.addItem("50");
-		WorkLoadBox.addItem("75");
-		WorkLoadBox.addItem("100");
+		final JComboBox WorkLoadBox = new JComboBox();
+		WorkLoadBox.setBounds(376, 362, 43, 20);
+		final JComboBox WorkLoadBox1 = new JComboBox();
+		WorkLoadBox1.setBounds(538, 89, 55, 20);
+		this.add(WorkLoadBox1);
+		WorkLoadBox1.addItem("25");
+		WorkLoadBox1.addItem("50");
+		WorkLoadBox1.addItem("75");
+		WorkLoadBox1.addItem("100");
 		
 		//Fetch all projects from database
 		List<Project> allprojects;
@@ -171,7 +180,7 @@ public class EcoAllocateCard extends JPanel {
 		add(scrollPane_1);
 		scrollPane_1.setSize(200, 250);
 		
-		JList ConsultantList = new JList();
+		final JList ConsultantList = new JList();
 		scrollPane_1.setViewportView(ConsultantList);
 		ConsultantList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		ConsultantList.setModel(ListModelUser);
@@ -183,7 +192,7 @@ public class EcoAllocateCard extends JPanel {
 		add(scrollPane);
 		scrollPane.setSize(200, 250);
 		
-		JList ProjectList = new JList();
+		final JList ProjectList = new JList();
 		scrollPane.setViewportView(ProjectList);
 		ProjectList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		ProjectList.setModel(ListModelProject); 
@@ -212,19 +221,19 @@ public class EcoAllocateCard extends JPanel {
 				String projectnr=ListModelProject.getElementAt(ProjectList.getSelectedIndex()).getProjectNumber();
 				String user=ListModelUser.getElementAt(ConsultantList.getSelectedIndex()).getSSN();
 				
-				String workload=WorkLoadBox.getSelectedItem().toString();
+				String workload=WorkLoadBox1.getSelectedItem().toString();
 				String hourlyrate=HourlyRateText.getText();
 				if(other){
 					role=OtherRoleText.getText();
-					RoleBox.enable(true);
-					RoleBox.setSelectedIndex(0);
+					RoleBox1.enable(true);
+					RoleBox1.setSelectedIndex(0);
 				}
 				else{
-					role=RoleBox.getSelectedItem().toString();
+					role=RoleBox1.getSelectedItem().toString();
 				}
 				//insert this into projectmember table
 				controller.CreateAllocation(hourlyrate,projectnr,role,user,workload);
-				OtherLabel.show(false);
+				OtherLabel1.show(false);
 				OtherRoleText.show(false);
 				
 			

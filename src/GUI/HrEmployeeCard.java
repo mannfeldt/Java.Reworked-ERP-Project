@@ -27,10 +27,21 @@ import controllers.TextFieldLimit;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 import com.toedter.calendar.JDateChooser;
+
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeEvent;
+import java.awt.event.InputMethodListener;
+import java.awt.event.InputMethodEvent;
+
 
 public class HrEmployeeCard extends JPanel {
 	/**
@@ -357,9 +368,7 @@ public class HrEmployeeCard extends JPanel {
 
 
 	public void getAllusers() {
-
 		usersList = Controller.getAllUsers();
-		
 		if (usersList.size() > 0) {
 			for (int i = 0; i < usersList.size(); i++) {
 				allUsersModel.add(i, usersList.get(i));
