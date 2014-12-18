@@ -216,5 +216,32 @@ public class db_Mapper {
 		}
 
 	}
-	
+
+    public String getOrganisationNumber(String companyName) {
+
+        SqlSession session = sqlSessionFactory.openSession();
+
+        try {
+            return session.selectOne("Login.selectOrganisationNumber", companyName);
+
+        } finally {
+            session.close();
+
+        }
+    }
+        
+        public List<Project> getCustomerProjects(String organisationNumber) {
+
+        SqlSession session = sqlSessionFactory.openSession();
+
+        try {
+            return session.selectList("Login.selectCustomerProjects", organisationNumber);
+
+        } finally {
+            session.close();
+
+        }
+
+    }
+
 }
