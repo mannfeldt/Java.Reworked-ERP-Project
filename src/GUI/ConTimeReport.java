@@ -2,6 +2,7 @@ package GUI;
 
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.text.DateFormat;
 import java.util.Date;
@@ -45,6 +46,7 @@ public class ConTimeReport extends JPanel {
 	public ConTimeReport() {
 		setLayout(null);
 		setBounds(100, 100, 541, 333);
+		setBackground(Color.LIGHT_GRAY);
 		
 		JButton btnConfirmTimeReport = new JButton("Confirm");
 		btnConfirmTimeReport.addActionListener(new ActionListener() {

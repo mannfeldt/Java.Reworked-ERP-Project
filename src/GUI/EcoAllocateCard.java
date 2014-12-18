@@ -22,6 +22,7 @@ import controllers.EcoCreateAllocationController;
 import objects.Project;
 import objects.User;
 import controllers.TextFieldLimit;
+import java.awt.Color;
 
 public class EcoAllocateCard extends JPanel {
 	private JTextField OtherRoleText;
@@ -34,6 +35,7 @@ public class EcoAllocateCard extends JPanel {
 	 * Create the panel.
 	 */
 	public EcoAllocateCard() {
+		setBackground(Color.LIGHT_GRAY);
 		setLayout(null);
 		
 	

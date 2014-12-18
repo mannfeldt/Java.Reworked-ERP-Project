@@ -1,5 +1,6 @@
 package GUI;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class EcoInvoicesOverviewCard extends JPanel {
 	public EcoInvoicesOverviewCard() {
 		setLayout(null);
 		Controller = new EcoInvoicesOverviewCardController();		
-
+		setBackground(Color.LIGHT_GRAY);
 		
 		JList paiedInvoices = new JList();
 		paiedModel = new DefaultListModel();

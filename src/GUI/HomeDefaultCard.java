@@ -13,13 +13,8 @@ public class HomeDefaultCard extends JPanel {
 
 		JLabel lblNewLabel = new JLabel("");
         lblNewLabel.setIcon(new ImageIcon("source/images/hyberlogga.png"));
-        lblNewLabel.setBounds(6, 34, 912, 483);
+        lblNewLabel.setBounds(0, 0, 912, 483);
         add(lblNewLabel);
-        
-        JLabel lblWelcomeToHyber = new JLabel("Welcome to hyber!");
-        lblWelcomeToHyber.setFont(new Font("Heiti TC", Font.BOLD, 20));
-        lblWelcomeToHyber.setBounds(194, 0, 244, 47);
-        add(lblWelcomeToHyber);
 	}
 
 }

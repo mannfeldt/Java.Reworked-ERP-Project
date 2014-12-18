@@ -27,7 +27,7 @@ public class GUIHome  {
     	
     	
         JPanel mainMenuPane = new JPanel();
-        mainMenuPane.setBounds(6, 12, 153, 793);
+        mainMenuPane.setBounds(6, 11, 153, 479);
         mainMenuPane.setBackground(Color.LIGHT_GRAY);
         mainMenuPane.setLayout(null);
         
@@ -38,10 +38,10 @@ public class GUIHome  {
         EKOmenuCard.setBackground(new Color(30, 144, 255));
          
         viewCards = new JPanel(new CardLayout());
-        viewCards.setBounds(323, 12, 867, 498);
+        viewCards.setBounds(334, 27, 840, 463);
         
         secondMenuCards = new JPanel(new CardLayout());
-        secondMenuCards.setBounds(166, 12, 158, 865);
+        secondMenuCards.setBounds(166, 11, 153, 479);
         secondMenuCards.setBackground(UIManager.getColor("Focus.color"));
         secondMenuCards.add(EKOmenuCard, "EKOmenuCard");
         
@@ -61,7 +61,7 @@ public class GUIHome  {
         	}
         });
         
-        btnTimeReport.setBounds(0, 12, 158, 25);
+        btnTimeReport.setBounds(0, 12, 153, 25);
         consultantMenuCard.add(btnTimeReport);
         
         JPanel HomeMenuCard = new JPanel();
@@ -79,7 +79,7 @@ public class GUIHome  {
         		cardLayout.show(viewCards, "CHRM");
         	}
         });
-        btnContactHrm.setBounds(0, 12, 158, 25);
+        btnContactHrm.setBounds(0, 12, 153, 25);
         HomeMenuCard.add(btnContactHrm);
         
         JButton btnContactEconomy = new JButton("Contact Economy");
@@ -92,7 +92,7 @@ public class GUIHome  {
         		cardLayout.show(viewCards, "CEKO");
         	}
         });
-        btnContactEconomy.setBounds(0, 38, 158, 25);
+        btnContactEconomy.setBounds(0, 38, 153, 25);
         HomeMenuCard.add(btnContactEconomy);
         secondMenuCards.add(HRmenuCard, "HRmenuCard");
         HRmenuCard.setLayout(null);
@@ -107,7 +107,7 @@ public class GUIHome  {
         		cardLayout.show(viewCards, "HPC");
         	}
         });
-        btnProjects.setBounds(0, 12, 158, 25);
+        btnProjects.setBounds(0, 12, 153, 25);
         HRmenuCard.add(btnProjects);
         
         JButton btnEmployees = new JButton("Employees");
@@ -121,7 +121,7 @@ public class GUIHome  {
         	}
         });
         frame.getContentPane().setLayout(null);
-        btnEmployees.setBounds(0, 38, 158, 25);
+        btnEmployees.setBounds(0, 38, 153, 25);
         HRmenuCard.add(btnEmployees);
         frame.getContentPane().add(secondMenuCards);
         
@@ -150,7 +150,7 @@ public class GUIHome  {
         		cardLayout.show(viewCards, "ECPC");
         	}
         });
-        btnNewButton_1.setBounds(0, 12, 158, 25);
+        btnNewButton_1.setBounds(0, 12, 153, 25);
         EKOmenuCard.add(btnNewButton_1);
         
         JButton btnInvoiceOverview = new JButton("Invoice Overview");
@@ -163,7 +163,7 @@ public class GUIHome  {
         		cardLayout.show(viewCards, "EIOC");
         	}
         });
-        btnInvoiceOverview.setBounds(0, 66, 158, 25);
+        btnInvoiceOverview.setBounds(0, 66, 153, 25);
         EKOmenuCard.add(btnInvoiceOverview);
         
         JButton btnWages = new JButton("Wages");
@@ -176,7 +176,7 @@ public class GUIHome  {
         		cardLayout.show(viewCards, "EWC");
         	}
         });
-        btnWages.setBounds(0, 91, 158, 25);
+        btnWages.setBounds(0, 91, 153, 25);
         EKOmenuCard.add(btnWages);
         
         JButton btnSendEmail = new JButton("Send email");
@@ -189,7 +189,7 @@ public class GUIHome  {
         		cardLayout.show(viewCards, "EEC");
         	}
         });
-        btnSendEmail.setBounds(0, 141, 158, 25);
+        btnSendEmail.setBounds(0, 141, 153, 25);
         EKOmenuCard.add(btnSendEmail);
         
         JPanel adminMenuCard = new JPanel();
@@ -207,7 +207,7 @@ public class GUIHome  {
         		cardLayout.show(viewCards, "ANUC");
         	}
         });
-        btnNewUser.setBounds(0, 12, 158, 25);
+        btnNewUser.setBounds(0, 12, 153, 25);
         adminMenuCard.add(btnNewUser);
          
         pane.add(mainMenuPane);
@@ -296,7 +296,7 @@ public class GUIHome  {
         		cardLayout.show(viewCards, "ECIC");
         	}
         });
-        btnCreateInvoice.setBounds(0, 37, 158, 29);
+        btnCreateInvoice.setBounds(0, 37, 153, 29);
         EKOmenuCard.add(btnCreateInvoice);
 
         JButton btnAllocate = new JButton("Allocate Resources");
@@ -310,7 +310,7 @@ public class GUIHome  {
         		cardLayout.show(viewCards, "EAC");
         	}
         });
-        btnAllocate.setBounds(0, 116, 158, 25);
+        btnAllocate.setBounds(0, 116, 153, 25);
         EKOmenuCard.add(btnAllocate);
         
 		CardLayout cardLayout = (CardLayout) viewCards.getLayout();
@@ -340,6 +340,12 @@ public class GUIHome  {
         //Create and set up the content pane.
         GUIHome demo = new GUIHome();
         demo.addComponentToPane(frame.getContentPane());
+        
+        JLabel txloggedin = new JLabel("New label");
+        txloggedin.setFont(new Font("Tahoma", Font.BOLD, 14));
+        txloggedin.setBounds(334, 2, 747, 24);
+        txloggedin.setText("Logged in as: "+controllers.LoginController.loggedinuserAu+", "+controllers.LoginController.loggedinuser);
+        frame.getContentPane().add(txloggedin);
         
         //Display the window.
         frame.setVisible(true);

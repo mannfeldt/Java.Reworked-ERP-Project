@@ -11,6 +11,7 @@ import javax.swing.JList;
 
 import objects.Employee;
 import objects.User;
+import java.awt.Color;
 
 public class EcoWagesCard extends JPanel {
 
@@ -21,6 +22,7 @@ public class EcoWagesCard extends JPanel {
 	DefaultListModel<Employee> employeesWageModel;
 
 	public EcoWagesCard() {
+		setBackground(Color.LIGHT_GRAY);
 		setLayout(null);
 		Controller = new EcoWagesCardController();		
 

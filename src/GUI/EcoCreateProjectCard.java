@@ -12,6 +12,7 @@ import controllers.TextFieldLimit;
 import objects.Customer;
 import objects.ProjectMember;
 
+import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
@@ -40,6 +41,7 @@ public class EcoCreateProjectCard extends JPanel {
 
 	public EcoCreateProjectCard() {
 		setLayout(null);
+		setBackground(Color.LIGHT_GRAY);
 		Controller = new EcoCreateProjectCardController();		
 
 

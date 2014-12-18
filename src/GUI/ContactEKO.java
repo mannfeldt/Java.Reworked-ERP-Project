@@ -1,5 +1,7 @@
 package GUI;
 
+import java.awt.Color;
+
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 
@@ -10,6 +12,7 @@ public class ContactEKO extends JPanel {
 	 */
 	public ContactEKO() {
 		setLayout(null);
+		setBackground(Color.LIGHT_GRAY);
 		
 		JLabel label = new JLabel("EKO: Contact information");
 		label.setBounds(6, 6, 164, 16);

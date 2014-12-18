@@ -67,29 +67,29 @@ public class GUILogin extends JFrame {
         
         JButton btnLogin = new JButton("Login");
         btnLogin.addActionListener(loginListener);
-        btnLogin.setBounds(106, 144, 139, 23);
+        btnLogin.setBounds(95, 136, 139, 23);
         contentPane.add(btnLogin);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 450, 300);
         
         UserIdField = new JTextField();
-        UserIdField.setBounds(106, 82, 139, 20);
+        UserIdField.setBounds(95, 74, 139, 20);
         contentPane.add(UserIdField);
         UserIdField.setColumns(10);
 
         JLabel lblUserid = new JLabel("UserID:");
         lblUserid.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        lblUserid.setBounds(23, 85, 73, 14);
+        lblUserid.setBounds(12, 77, 73, 14);
         contentPane.add(lblUserid);
 
         JLabel lblPassword = new JLabel("Password:");
         lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        lblPassword.setBounds(23, 116, 73, 14);
+        lblPassword.setBounds(12, 108, 73, 14);
         contentPane.add(lblPassword);
 
         passwordField = new JPasswordField();
-        passwordField.setBounds(106, 113, 139, 20);
+        passwordField.setBounds(95, 105, 139, 20);
         contentPane.add(passwordField);
 
         lblHyber = new JLabel("Hyber\u2122");
@@ -101,7 +101,7 @@ public class GUILogin extends JFrame {
 
         JLabel lblNewLabel = new JLabel("New label");
         lblNewLabel.setIcon(new ImageIcon("source/images/hyberlogga_small.png"));
-        lblNewLabel.setBounds(257, 14, 180, 119);
+        lblNewLabel.setBounds(242, 25, 180, 119);
         contentPane.add(lblNewLabel);
     }
 
