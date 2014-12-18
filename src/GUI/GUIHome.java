@@ -356,7 +356,7 @@ public class GUIHome  {
         btnAdministration.setIcon(AdminIcon);
         btnAdministration.setHorizontalAlignment(SwingConstants.LEFT);
         
-        btnAdministration.addActionListener(new ActionListener() {//hej
+        btnAdministration.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		CardLayout cardLayout = (CardLayout) secondMenuCards.getLayout();
         		cardLayout.show(secondMenuCards, "adminMenuCard");
