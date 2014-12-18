@@ -9,7 +9,7 @@ public class InputHandler {
 		
 		boolean isSSNValid = false;
 		String input = SSN;
-		String messege="SSN must be on form yyyymmddnnnn";
+		String messege="SSN must be on form: yyyymmddnnnn";
 		
 		if(SSN.length()==12){
 			
@@ -39,7 +39,6 @@ public class InputHandler {
 	}
 	
 	
-	
 	public boolean checkIFProjectNumber(String pn){
 		
 		boolean isValid = false;
@@ -52,6 +51,33 @@ public class InputHandler {
 		if(isValid==false){
 		JOptionPane.showMessageDialog(null,
 				"Projectnumber must be defined",
+				"User not added", JOptionPane.ERROR_MESSAGE);
+		}
+		return isValid;
+	}
+	
+	public boolean checkIFTime(String pn){
+		String input = pn;
+		String messege="start/stop must be on form: hhmm";
+		boolean isValid = false;
+		
+		if(pn.length()==4){
+			String hour = input.substring(0, 2);
+			String min = input.substring(2, 4);
+			
+			if((Integer.parseInt(hour)<25) & (Integer.parseInt(hour)>0)){
+				if((Integer.parseInt(min)<61) & (Integer.parseInt(min)>0)){
+					isValid=true;
+				}else{messege="start/stop, min not valid (hhmm)";}
+			}else{messege="start/stop, hour not valid (hhmm)";}
+			
+			
+		}
+		
+
+		if(isValid==false){
+		JOptionPane.showMessageDialog(null,
+				messege,
 				"User not added", JOptionPane.ERROR_MESSAGE);
 		}
 		return isValid;

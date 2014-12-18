@@ -18,6 +18,7 @@ import com.toedter.calendar.JDateChooser;
 
 import controllers.ConsultTimeReportController;
 import controllers.EcoCreateAllocationController;
+import controllers.InputHandler;
 import controllers.LoginController;
 import controllers.TextFieldLimit;
 
@@ -28,6 +29,8 @@ import objects.ProjectMember;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class ConTimeReport extends JPanel {
 
@@ -39,6 +42,7 @@ public class ConTimeReport extends JPanel {
 	private JDateChooser dateChooserTimeReport; //timreport
 	private DateFormat df = DateFormat.getDateInstance();
 	private Date datenow =new Date();
+	private InputHandler inputhandler= new InputHandler();
 	ConsultTimeReportController controller = new ConsultTimeReportController();
 	String user = controllers.LoginController.loggedinuser;
 	
@@ -59,7 +63,12 @@ public class ConTimeReport extends JPanel {
 				String start = starttp.getText();
 				String stop = stoptp.getText();
 				String date = df.format(dateChooserTimeReport.getDate());
-				controller.addTimeReport(user,projekt,date,start,stop);
+				
+			if(inputhandler.checkIFTime(stop)){
+				if(inputhandler.checkIFTime(start)){
+					controller.addTimeReport(user,projekt,date,start,stop);
+				}
+			}
 			}
 		});
 		btnConfirmTimeReport.setBounds(66, 204, 124, 23);
@@ -79,13 +88,37 @@ public class ConTimeReport extends JPanel {
 		stoptp.setColumns(10);
 		stoptp.setBounds(66, 126, 124, 20);
 		add(stoptp);
-		stoptp.setDocument(new TextFieldLimit(5));
+		stoptp.setDocument(new TextFieldLimit(4));
+		
+		stoptp.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				char i = arg0.getKeyChar();
+				if(!(Character.isDigit(i)||(i==KeyEvent.VK_BACK_SPACE)|| i==KeyEvent.VK_DELETE ))
+				{
+					getToolkit().beep();
+					arg0.consume();
+				}
+			}
+		});
 		
 		starttp = new JTextField();
 		starttp.setColumns(10);
 		starttp.setBounds(66, 87, 124, 20);
 		add(starttp);
-		starttp.setDocument(new TextFieldLimit(5));
+		starttp.setDocument(new TextFieldLimit(4));
+		
+		starttp.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				char i = arg0.getKeyChar();
+				if(!(Character.isDigit(i)||(i==KeyEvent.VK_BACK_SPACE)|| i==KeyEvent.VK_DELETE ))
+				{
+					getToolkit().beep();
+					arg0.consume();
+				}
+			}
+		});
 		
 		JLabel label_1 = new JLabel("Start");
 		label_1.setBounds(10, 84, 46, 14);
