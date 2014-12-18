@@ -62,10 +62,32 @@
 		<result property="organisationNumber" column="organisationNumber" />
 		<result property="projectNumber" column="projectNumber" />
 	</resultMap>
+	
+	<resultMap id="Projects" type="ProjectMember">
+		<result property="SSN" column="projectNumber" />
+		<result property="projectNumber" column="projectNumber" />
+		<result property="role" column="role" />
+		<result property="hourlyRate" column="hourlyRate" />
+		<result property="workload" column="workload" />
+	</resultMap>
 
-
+	<select id="selectAllProjects" parameterType="ProjectMember"
+		resultMap="Projects">
+		SELECT *
+		FROM ProjectMembers
+		WHERE SSN = #{SSN}
+	</select>
+	
+	<insert id="insertTime" parameterType="TimeReport"
+		useGeneratedKeys="false" keyProperty="SSN">
+		INSERT TimeReports
+		(SSN,projectNumber,date,startTime,stopTime)
+		VALUES(#{SSN},
+		#{projectNumber}, #{date}, #{startTime}, #{stopTime});
+	</insert>
+	
     <insert id="insertPerson" parameterType="Person"
-                useGeneratedKeys="false" keyProperty="SSN">
+        useGeneratedKeys="false" keyProperty="SSN">
         INSERT Persons
         (SSN,firstName,lastName) VALUES (#{SSN},#{firstName},#{lastName});
     </insert>

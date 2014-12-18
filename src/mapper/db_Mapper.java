@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import objects.TimeReport;
 import objects.ProjectMember;
 import objects.Login;
 import objects.Person;
@@ -181,6 +182,39 @@ public class db_Mapper {
 			session.close();
 		}
 		
+	}
+	public List<ProjectMember> getAllProjects(String SSN) {
+
+		List<ProjectMember> list = null;
+		SqlSession session = sqlSessionFactory.openSession();
+
+		try {
+			list = session.selectList("Login.selectAllProjects", SSN);
+		} finally {
+			session.close();
+		}
+		return list;
+	}
+	
+	public void insertNewTime(TimeReport n) {
+		SqlSession session = sqlSessionFactory.openSession();
+
+		try {
+			session.insert("Login.insertTime", n);
+			JOptionPane.showMessageDialog(null,
+					"Successfully added TimeReport.", "TimeReport added",
+					JOptionPane.PLAIN_MESSAGE);
+
+		} catch (PersistenceException e) {
+			JOptionPane.showMessageDialog(null,
+					"Timereport already exist on current date",
+					"Timereport not added", JOptionPane.ERROR_MESSAGE);
+
+		} finally {
+			session.commit();
+			session.close();
+		}
+
 	}
 	
 }

@@ -24,6 +24,9 @@ import javax.swing.JComboBox;
 
 import objects.ProjectMember;
 
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 public class ConTimeReport extends JPanel {
 
 	private JPanel contentPane;
@@ -43,6 +46,20 @@ public class ConTimeReport extends JPanel {
 		setBounds(100, 100, 541, 333);
 		
 		JButton btnConfirmTimeReport = new JButton("Confirm");
+		btnConfirmTimeReport.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				ProjectMember n = new ProjectMember();
+				//n=(ProjectMember) projectbox.getSelectedItem();
+				
+				
+				String projekt = n.getProjectNumber().toString();
+				String start = starttp.getText();
+				String stop = stoptp.getText();
+				String date = df.format(dateChooserTimeReport.getDate());
+				//controller.addTimeReport(SSN,projekt,date,start,stop);
+			}
+		});
 		btnConfirmTimeReport.setBounds(66, 204, 124, 23);
 		add(btnConfirmTimeReport);
 		
