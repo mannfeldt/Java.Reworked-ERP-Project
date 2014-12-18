@@ -25,7 +25,17 @@ public class GUIHome  {
     private JButton btnAdministration;
     private JButton btnHRMenu;   
     private JButton btnEKOMenu;
-    
+    private JButton btnCreateproject;
+    private JButton btnCreateInvoice;
+    private JButton btnInvoiceOverview;
+    private JButton btnWages;
+    private JButton btnAllocate;
+    private JButton btnSendEmail;
+    private JButton btnProjects;
+    private JButton btnEmployees;
+    private JButton btnContactHrm;
+    private JButton btnContactEconomy;
+    private JButton btnTimeReport;
    
     
      
@@ -56,7 +66,7 @@ public class GUIHome  {
         consultantMenuCard.setBackground(Color.LIGHT_GRAY);
         secondMenuCards.add(consultantMenuCard, "consultantMenuCard");
         
-        JButton btnTimeReport = new JButton("Time report");
+        btnTimeReport = new JButton("Time report");
         btnTimeReport.setHorizontalAlignment(SwingConstants.LEFT);
         btnTimeReport.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
@@ -64,6 +74,7 @@ public class GUIHome  {
         		ConTimeReport TimeReport = new ConTimeReport();
         		viewCards.add(TimeReport, "TMR");
         		cardLayout.show(viewCards, "TMR");
+        		btnTimeReport.setBackground(SystemColor.activeCaption);
         	}
         });
         
@@ -75,7 +86,7 @@ public class GUIHome  {
         HomeMenuCard.setBackground(Color.LIGHT_GRAY);
         secondMenuCards.add(HomeMenuCard, "homeMenuCard");
         
-        JButton btnContactHrm = new JButton("Contact HRM");
+       btnContactHrm = new JButton("Contact HRM");
         btnContactHrm.setHorizontalAlignment(SwingConstants.LEFT);
         btnContactHrm.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
@@ -83,12 +94,14 @@ public class GUIHome  {
         		ContactHRM CHRM = new ContactHRM();
         		viewCards.add(CHRM, "CHRM");
         		cardLayout.show(viewCards, "CHRM");
+        		btnContactHrm.setBackground(SystemColor.activeCaption);
+        		btnContactEconomy.setBackground(new JButton().getBackground());
         	}
         });
         btnContactHrm.setBounds(0, 12, 153, 25);
         HomeMenuCard.add(btnContactHrm);
         
-        JButton btnContactEconomy = new JButton("Contact Economy");
+        btnContactEconomy = new JButton("Contact Economy");
         btnContactEconomy.setHorizontalAlignment(SwingConstants.LEFT);
         btnContactEconomy.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
@@ -96,6 +109,8 @@ public class GUIHome  {
         		ContactEKO CEKO = new ContactEKO();
         		viewCards.add(CEKO, "CEKO");
         		cardLayout.show(viewCards, "CEKO");
+        		btnContactEconomy.setBackground(SystemColor.activeCaption);
+        		btnContactHrm.setBackground(new JButton().getBackground());
         	}
         });
         btnContactEconomy.setBounds(0, 38, 153, 25);
@@ -103,7 +118,7 @@ public class GUIHome  {
         secondMenuCards.add(HRmenuCard, "HRmenuCard");
         HRmenuCard.setLayout(null);
         
-        JButton btnProjects = new JButton("Projects");
+        btnProjects = new JButton("Projects");
         btnProjects.setHorizontalAlignment(SwingConstants.LEFT);
         btnProjects.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
@@ -111,12 +126,14 @@ public class GUIHome  {
         		HrProjectCard HPC = new HrProjectCard();
         		viewCards.add(HPC, "HPC");
         		cardLayout.show(viewCards, "HPC");
+        		btnProjects.setBackground(SystemColor.activeCaption);
+        		btnEmployees.setBackground(new JButton().getBackground());
         	}
         });
         btnProjects.setBounds(0, 12, 153, 25);
         HRmenuCard.add(btnProjects);
         
-        JButton btnEmployees = new JButton("Employees");
+       btnEmployees = new JButton("Employees");
         btnEmployees.setHorizontalAlignment(SwingConstants.LEFT);
         btnEmployees.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {        		
@@ -124,6 +141,8 @@ public class GUIHome  {
         		HrEmployeeCard HEC = new HrEmployeeCard();
         		viewCards.add(HEC, "HEC");
         		cardLayout.show(viewCards, "HEC");
+        		btnEmployees.setBackground(SystemColor.activeCaption);
+        		btnProjects.setBackground(new JButton().getBackground());
         	}
         });
         frame.getContentPane().setLayout(null);
@@ -145,21 +164,27 @@ public class GUIHome  {
         btnNewButton.setBounds(12, 49, 106, 25);
         EKOmenuCard.setLayout(null);
         
-        JButton btnNewButton_1 = new JButton("Create Project");
-        btnNewButton_1.setHorizontalAlignment(SwingConstants.LEFT);
+        btnCreateproject = new JButton("Create Project");
+        btnCreateproject.setHorizontalAlignment(SwingConstants.LEFT);
 
-        btnNewButton_1.addActionListener(new ActionListener() {
+        btnCreateproject.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		CardLayout cardLayout = (CardLayout) viewCards.getLayout();
         		EcoCreateProjectCard ECPC= new EcoCreateProjectCard();
         		viewCards.add(ECPC, "ECPC");
         		cardLayout.show(viewCards, "ECPC");
+        		btnCreateproject.setBackground(SystemColor.activeCaption);
+        		btnInvoiceOverview.setBackground(new JButton().getBackground());
+        		btnCreateInvoice.setBackground(new JButton().getBackground());
+        		btnWages.setBackground(new JButton().getBackground());
+        		btnSendEmail.setBackground(new JButton().getBackground());
+        		btnAllocate.setBackground(new JButton().getBackground());
         	}
         });
-        btnNewButton_1.setBounds(0, 12, 153, 25);
-        EKOmenuCard.add(btnNewButton_1);
+        btnCreateproject.setBounds(0, 12, 153, 25);
+        EKOmenuCard.add(btnCreateproject);
         
-        JButton btnInvoiceOverview = new JButton("Invoice Overview");
+        btnInvoiceOverview = new JButton("Invoice Overview");
         btnInvoiceOverview.setHorizontalAlignment(SwingConstants.LEFT);
         btnInvoiceOverview.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
@@ -167,12 +192,18 @@ public class GUIHome  {
         		EcoInvoicesOverviewCard EIOC = new EcoInvoicesOverviewCard();
         		viewCards.add(EIOC, "EIOC");
         		cardLayout.show(viewCards, "EIOC");
+        		btnInvoiceOverview.setBackground(SystemColor.activeCaption);
+        		btnCreateproject.setBackground(new JButton().getBackground());
+        		btnCreateInvoice.setBackground(new JButton().getBackground());
+        		btnWages.setBackground(new JButton().getBackground());
+        		btnSendEmail.setBackground(new JButton().getBackground());
+        		btnAllocate.setBackground(new JButton().getBackground());
         	}
         });
         btnInvoiceOverview.setBounds(0, 66, 153, 25);
         EKOmenuCard.add(btnInvoiceOverview);
         
-        JButton btnWages = new JButton("Wages");
+        btnWages = new JButton("Wages");
         btnWages.setHorizontalAlignment(SwingConstants.LEFT);
         btnWages.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
@@ -180,12 +211,18 @@ public class GUIHome  {
         		EcoWagesCard EWC = new EcoWagesCard();
         		viewCards.add(EWC, "EWC");
         		cardLayout.show(viewCards, "EWC");
+        		btnWages.setBackground(SystemColor.activeCaption);
+        		btnCreateproject.setBackground(new JButton().getBackground());
+        		btnCreateInvoice.setBackground(new JButton().getBackground());
+        		btnInvoiceOverview.setBackground(new JButton().getBackground());
+        		btnSendEmail.setBackground(new JButton().getBackground());
+        		btnAllocate.setBackground(new JButton().getBackground());
         	}
         });
         btnWages.setBounds(0, 91, 153, 25);
         EKOmenuCard.add(btnWages);
         
-        JButton btnSendEmail = new JButton("Send email");
+        btnSendEmail = new JButton("Send email");
         btnSendEmail.setHorizontalAlignment(SwingConstants.LEFT);
         btnSendEmail.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
@@ -193,6 +230,13 @@ public class GUIHome  {
         		EcoEmailCard EEC = new EcoEmailCard();
         		viewCards.add(EEC, "EEC");
         		cardLayout.show(viewCards, "EEC");
+        		btnSendEmail.setBackground(SystemColor.activeCaption);
+        		btnCreateproject.setBackground(new JButton().getBackground());
+        		btnCreateInvoice.setBackground(new JButton().getBackground());
+        		btnInvoiceOverview.setBackground(new JButton().getBackground());
+        		btnWages.setBackground(new JButton().getBackground());
+        		btnAllocate.setBackground(new JButton().getBackground());
+        		
         	}
         });
         btnSendEmail.setBounds(0, 141, 153, 25);
@@ -211,6 +255,7 @@ public class GUIHome  {
         		AdminNewUserCard ANUC = new AdminNewUserCard();
         		viewCards.add(ANUC, "ANUC");
         		cardLayout.show(viewCards, "ANUC");
+        		btnNewUser.setBackground(SystemColor.activeCaption);
         	}
         });
         btnNewUser.setBounds(0, 12, 153, 25);
@@ -318,7 +363,7 @@ public class GUIHome  {
 
   
 
-        JButton btnCreateInvoice = new JButton("Create Invoice");
+        btnCreateInvoice = new JButton("Create Invoice");
         btnCreateInvoice.setHorizontalAlignment(SwingConstants.LEFT);
         btnCreateInvoice.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
@@ -326,12 +371,18 @@ public class GUIHome  {
         		EcoCreateInvoiceCard ECIC = new EcoCreateInvoiceCard();
         		viewCards.add(ECIC, "ECIC");
         		cardLayout.show(viewCards, "ECIC");
+        		btnCreateproject.setBackground(new JButton().getBackground());
+        		btnInvoiceOverview.setBackground(new JButton().getBackground());
+        		btnCreateInvoice.setBackground(SystemColor.activeCaption);
+        		btnWages.setBackground(new JButton().getBackground());
+        		btnSendEmail.setBackground(new JButton().getBackground());
+        		btnAllocate.setBackground(new JButton().getBackground());
         	}
         });
         btnCreateInvoice.setBounds(0, 37, 153, 29);
         EKOmenuCard.add(btnCreateInvoice);
 
-        JButton btnAllocate = new JButton("Allocate Resources");
+        btnAllocate  = new JButton("Allocate Resources");
         btnAllocate.setHorizontalAlignment(SwingConstants.LEFT);
         btnAllocate.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
@@ -340,6 +391,12 @@ public class GUIHome  {
         		EcoAllocateCard EAC= new EcoAllocateCard();
         		viewCards.add(EAC, "EAC");
         		cardLayout.show(viewCards, "EAC");
+        		btnCreateproject.setBackground(new JButton().getBackground());
+        		btnInvoiceOverview.setBackground(new JButton().getBackground());
+        		btnCreateInvoice.setBackground(new JButton().getBackground());
+        		btnWages.setBackground(new JButton().getBackground());
+        		btnSendEmail.setBackground(new JButton().getBackground());
+        		btnAllocate.setBackground(SystemColor.activeCaption);
         	}
         });
         btnAllocate.setBounds(0, 116, 153, 25);
