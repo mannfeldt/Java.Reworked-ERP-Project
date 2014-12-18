@@ -36,6 +36,7 @@ public class GUIHome  {
     private JButton btnContactHrm;
     private JButton btnContactEconomy;
     private JButton btnTimeReport;
+    private JButton btnNewUser;
    
     
      
@@ -247,7 +248,7 @@ public class GUIHome  {
         adminMenuCard.setBackground(Color.LIGHT_GRAY);
         secondMenuCards.add(adminMenuCard, "adminMenuCard");
         
-        JButton btnNewUser = new JButton("New User");
+        btnNewUser = new JButton("New User");
         btnNewUser.setHorizontalAlignment(SwingConstants.LEFT);
         btnNewUser.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
@@ -277,6 +278,12 @@ public class GUIHome  {
         		btnAdministration.setBackground(new JButton().getBackground());
         		btnHRMenu.setBackground(new JButton().getBackground());
         		btnEKOMenu.setBackground(SystemColor.activeCaption);
+        	    btnCreateproject.setBackground(new JButton().getBackground());
+        	   btnCreateInvoice.setBackground(new JButton().getBackground());
+        	    btnInvoiceOverview.setBackground(new JButton().getBackground());
+        	    btnWages.setBackground(new JButton().getBackground());
+        	    btnAllocate.setBackground(new JButton().getBackground());
+        	   btnSendEmail.setBackground(new JButton().getBackground());
         	}
         });
         btnEKOMenu.setBounds(0, 38, 153, 25);
@@ -296,6 +303,8 @@ public class GUIHome  {
         		btnAdministration.setBackground(new JButton().getBackground());
         		btnHRMenu.setBackground(SystemColor.activeCaption);
         		btnEKOMenu.setBackground(new JButton().getBackground());
+        		    btnProjects.setBackground(new JButton().getBackground());
+        		    btnEmployees.setBackground(new JButton().getBackground());
         	}
         });
         
@@ -313,6 +322,8 @@ public class GUIHome  {
         		btnAdministration.setBackground(new JButton().getBackground());
         		btnHRMenu.setBackground(new JButton().getBackground());
         		btnEKOMenu.setBackground(new JButton().getBackground());
+        		btnContactHrm.setBackground(new JButton().getBackground());
+        		btnContactEconomy.setBackground(new JButton().getBackground());
         	}
         });
         btnHome.setBounds(0, 12, 153, 25);
@@ -334,6 +345,7 @@ public class GUIHome  {
         		btnAdministration.setBackground(new JButton().getBackground());
         		btnHRMenu.setBackground(new JButton().getBackground());
         		btnEKOMenu.setBackground(new JButton().getBackground());
+        		btnTimeReport.setBackground(new JButton().getBackground());
         	}
         });
         btnConsultants.setBounds(0, 90, 153, 25);
@@ -353,6 +365,7 @@ public class GUIHome  {
         		btnAdministration.setBackground(SystemColor.activeCaption);
         		btnHRMenu.setBackground(new JButton().getBackground());
         		btnEKOMenu.setBackground(new JButton().getBackground());
+        		btnNewUser.setBackground(new JButton().getBackground());
         	}
         });
         btnAdministration.setBounds(0, 116, 153, 25);
