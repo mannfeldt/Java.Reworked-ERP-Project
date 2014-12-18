@@ -60,6 +60,41 @@ public class GUIHome  {
         secondMenuCards = new JPanel(new CardLayout());
         secondMenuCards.setBounds(166, 11, 153, 489);
         secondMenuCards.setBackground(UIManager.getColor("Focus.color"));
+        
+        JPanel HomeMenuCard = new JPanel();
+        HomeMenuCard.setLayout(null);
+        HomeMenuCard.setBackground(Color.LIGHT_GRAY);
+        secondMenuCards.add(HomeMenuCard, "homeMenuCard");
+        
+       btnContactHrm = new JButton("Contact HRM");
+       btnContactHrm.setHorizontalAlignment(SwingConstants.LEFT);
+       btnContactHrm.addActionListener(new ActionListener() {
+       	public void actionPerformed(ActionEvent e) {
+       		CardLayout cardLayout = (CardLayout) viewCards.getLayout();
+       		ContactHRM CHRM = new ContactHRM();
+       		viewCards.add(CHRM, "CHRM");
+       		cardLayout.show(viewCards, "CHRM");
+       		btnContactHrm.setBackground(SystemColor.activeCaption);
+       		btnContactEconomy.setBackground(new JButton().getBackground());
+       	}
+       });
+       btnContactHrm.setBounds(0, 12, 153, 25);
+       HomeMenuCard.add(btnContactHrm);
+       
+       btnContactEconomy = new JButton("Contact Economy");
+       btnContactEconomy.setHorizontalAlignment(SwingConstants.LEFT);
+       btnContactEconomy.addActionListener(new ActionListener() {
+       	public void actionPerformed(ActionEvent e) {
+       		CardLayout cardLayout = (CardLayout) viewCards.getLayout();
+       		ContactEKO CEKO = new ContactEKO();
+       		viewCards.add(CEKO, "CEKO");
+       		cardLayout.show(viewCards, "CEKO");
+       		btnContactEconomy.setBackground(SystemColor.activeCaption);
+       		btnContactHrm.setBackground(new JButton().getBackground());
+       	}
+       });
+       btnContactEconomy.setBounds(0, 38, 153, 25);
+       HomeMenuCard.add(btnContactEconomy);
         secondMenuCards.add(EKOmenuCard, "EKOmenuCard");
         
         JPanel consultantMenuCard = new JPanel();
@@ -81,41 +116,6 @@ public class GUIHome  {
         
         btnTimeReport.setBounds(0, 12, 153, 25);
         consultantMenuCard.add(btnTimeReport);
-        
-        JPanel HomeMenuCard = new JPanel();
-        HomeMenuCard.setLayout(null);
-        HomeMenuCard.setBackground(Color.LIGHT_GRAY);
-        secondMenuCards.add(HomeMenuCard, "homeMenuCard");
-        
-       btnContactHrm = new JButton("Contact HRM");
-        btnContactHrm.setHorizontalAlignment(SwingConstants.LEFT);
-        btnContactHrm.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		CardLayout cardLayout = (CardLayout) viewCards.getLayout();
-        		ContactHRM CHRM = new ContactHRM();
-        		viewCards.add(CHRM, "CHRM");
-        		cardLayout.show(viewCards, "CHRM");
-        		btnContactHrm.setBackground(SystemColor.activeCaption);
-        		btnContactEconomy.setBackground(new JButton().getBackground());
-        	}
-        });
-        btnContactHrm.setBounds(0, 12, 153, 25);
-        HomeMenuCard.add(btnContactHrm);
-        
-        btnContactEconomy = new JButton("Contact Economy");
-        btnContactEconomy.setHorizontalAlignment(SwingConstants.LEFT);
-        btnContactEconomy.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		CardLayout cardLayout = (CardLayout) viewCards.getLayout();
-        		ContactEKO CEKO = new ContactEKO();
-        		viewCards.add(CEKO, "CEKO");
-        		cardLayout.show(viewCards, "CEKO");
-        		btnContactEconomy.setBackground(SystemColor.activeCaption);
-        		btnContactHrm.setBackground(new JButton().getBackground());
-        	}
-        });
-        btnContactEconomy.setBounds(0, 38, 153, 25);
-        HomeMenuCard.add(btnContactEconomy);
         secondMenuCards.add(HRmenuCard, "HRmenuCard");
         HRmenuCard.setLayout(null);
         
