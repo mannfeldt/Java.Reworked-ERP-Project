@@ -70,11 +70,21 @@
 		<result property="hourlyRate" column="hourlyRate" />
 		<result property="workload" column="workload" />
 	</resultMap>
+	
+	<resultMap id="AuthorLevel" type="String">
+		<result property="authorizationLevel" column="authorizationLevel" />
+	</resultMap>
 
 	<select id="selectAllProjects" parameterType="ProjectMember"
 		resultMap="Projects">
 		SELECT *
 		FROM ProjectMembers
+		WHERE SSN = #{SSN}
+	</select>
+	
+	<select id="selectIfExistsA" parameterType="String" resultMap="AuthorLevel">
+		SELECT authorizationLevel
+		FROM Logins
 		WHERE SSN = #{SSN}
 	</select>
 	

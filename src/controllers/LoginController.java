@@ -2,11 +2,15 @@ package controllers;
 
 import GUI.GUIHome;
 import GUI.GUILogin;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import mapper.LoginMapper;
+import mapper.db_Mapper;
 import objects.Login;
 import mapper.MyBatisConnectionFactory;
+
 import org.apache.ibatis.session.SqlSessionFactory;
 
 /**
@@ -16,6 +20,9 @@ import org.apache.ibatis.session.SqlSessionFactory;
 public class LoginController implements ActionListener {
 
     private final GUILogin guiLogin;
+ 
+    public static String loggedinuser;
+    public static  String loggedinuserAu;
 
     public LoginController(GUILogin loginView) {
         System.out.println("Created LoginController");
@@ -49,13 +56,21 @@ public class LoginController implements ActionListener {
         login.setSSN(SSN);
         login = mapper.selectIfExists(login);
         
+       System.out.println(this.loggedinuser=SSN);
+       System.out.println(this.loggedinuserAu=mapper.selectIfExistsA(loggedinuser));
+        
+        
         if (login.getIsThere() == 1) {
-            GUIHome.createAndShowGUI(SSN);
+            GUIHome.createAndShowGUI();
             
             this.guiLogin.dispose();
             System.out.println("Disposed login GUI");
         } else {
             this.guiLogin.showWrongPasswordDialog();
         }
+ 
     }
+    
+
+
 }

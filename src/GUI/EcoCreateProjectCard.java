@@ -7,6 +7,7 @@ import javax.swing.JComboBox;
 import javax.swing.JButton;
 
 import controllers.EcoCreateProjectCardController;
+import controllers.InputHandler;
 import controllers.TextFieldLimit;
 import objects.Customer;
 import objects.ProjectMember;
@@ -27,7 +28,7 @@ public class EcoCreateProjectCard extends JPanel {
 	private EcoCreateProjectCardController Controller;
 	private JDateChooser dateChooserprojectstart;
 	private JDateChooser dateChooserprojectstop;
-	
+	private InputHandler  inputhandler = new InputHandler();
 	private DateFormat df = DateFormat.getDateInstance();
 	private Date datenow =new Date();
 	protected static final JComboBox CustomerList = null;
@@ -103,9 +104,11 @@ public class EcoCreateProjectCard extends JPanel {
 				String estimatedStart = df.format(dateChooserprojectstart.getDate());
 				String estimatedStop = df.format(dateChooserprojectstop.getDate());
 				String projectNumber = txtProjNumber.getText();
-
+				
+				if(inputhandler.checkIFProjectNumber(projectNumber)){
 				Controller.CreateProject(customerNumber, estimatedCost,
 						estimatedStart, estimatedStop, projectNumber);
+				}
 			}
 		});
 		btnCreateProject.setBounds(61, 227, 132, 29);

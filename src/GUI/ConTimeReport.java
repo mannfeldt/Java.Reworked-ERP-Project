@@ -17,6 +17,7 @@ import com.toedter.calendar.JDateChooser;
 
 import controllers.ConsultTimeReportController;
 import controllers.EcoCreateAllocationController;
+import controllers.LoginController;
 import controllers.TextFieldLimit;
 
 import javax.swing.JTextField;
@@ -38,7 +39,7 @@ public class ConTimeReport extends JPanel {
 	private DateFormat df = DateFormat.getDateInstance();
 	private Date datenow =new Date();
 	ConsultTimeReportController controller = new ConsultTimeReportController();
-	String user = GUIHome.loggedinuser;
+	String user = controllers.LoginController.loggedinuser;
 	
 
 	public ConTimeReport() {

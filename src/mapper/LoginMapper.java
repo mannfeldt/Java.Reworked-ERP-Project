@@ -1,6 +1,7 @@
 package mapper;
 
 import objects.Login;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -21,5 +22,16 @@ public class LoginMapper {
         }
         return login;
     }
+    
+	public String selectIfExistsA(String SSN) {
+		SqlSession session = sqlSessionFactory.openSession();
+		String A;
+		try {
+			A = session.selectOne("Login.selectIfExistsA", SSN);
+		} finally {
+			session.close();
+		}
+		return A;
+	}
 
 }
