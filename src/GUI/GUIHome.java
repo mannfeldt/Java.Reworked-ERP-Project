@@ -20,6 +20,12 @@ public class GUIHome  {
     final static String BUTTONPANEL = "BUTTONPANEL";
     final static String TEXTPANEL = "TEXTPANEL";
     private static JFrame frame;
+    private JButton btnHome;
+    private JButton btnConsultants;
+    private JButton btnAdministration;
+    private JButton btnHRMenu;   
+    private JButton btnEKOMenu;
+    
    
     
      
@@ -27,7 +33,7 @@ public class GUIHome  {
     	
     	
         JPanel mainMenuPane = new JPanel();
-        mainMenuPane.setBounds(6, 11, 153, 479);
+        mainMenuPane.setBounds(6, 11, 153, 489);
         mainMenuPane.setBackground(Color.LIGHT_GRAY);
         mainMenuPane.setLayout(null);
         
@@ -38,10 +44,10 @@ public class GUIHome  {
         EKOmenuCard.setBackground(new Color(30, 144, 255));
          
         viewCards = new JPanel(new CardLayout());
-        viewCards.setBounds(334, 27, 840, 463);
+        viewCards.setBounds(334, 27, 840, 473);
         
         secondMenuCards = new JPanel(new CardLayout());
-        secondMenuCards.setBounds(166, 11, 153, 479);
+        secondMenuCards.setBounds(166, 11, 153, 489);
         secondMenuCards.setBackground(UIManager.getColor("Focus.color"));
         secondMenuCards.add(EKOmenuCard, "EKOmenuCard");
         
@@ -214,20 +220,25 @@ public class GUIHome  {
         
         
         Icon EkoIcon = new ImageIcon("source/images/ECO_logo.png");
-        JButton btnEKOMenu = new JButton("Economy");
+       btnEKOMenu = new JButton("Economy");
         btnEKOMenu.setHorizontalAlignment(SwingConstants.LEFT);
         btnEKOMenu.setIcon(EkoIcon);
         btnEKOMenu.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		CardLayout cardLayout = (CardLayout) secondMenuCards.getLayout();
         		cardLayout.show(secondMenuCards, "EKOmenuCard");
+        		btnHome.setBackground(new JButton().getBackground());
+        		btnConsultants.setBackground(new JButton().getBackground());
+        		btnAdministration.setBackground(new JButton().getBackground());
+        		btnHRMenu.setBackground(new JButton().getBackground());
+        		btnEKOMenu.setBackground(SystemColor.activeCaption);
         	}
         });
         btnEKOMenu.setBounds(0, 38, 153, 25);
         mainMenuPane.add(btnEKOMenu);
         
         Icon HrmIcon = new ImageIcon("source/images/HRM_logo.png");
-        JButton btnHRMenu = new JButton("HRM");
+        btnHRMenu = new JButton("HRM");
         btnHRMenu.setIcon(HrmIcon);
         btnHRMenu.setHorizontalAlignment(SwingConstants.LEFT);
 
@@ -235,17 +246,28 @@ public class GUIHome  {
         	public void actionPerformed(ActionEvent e) {
         		CardLayout cardLayout = (CardLayout) secondMenuCards.getLayout();
         		cardLayout.show(secondMenuCards, "HRmenuCard");
+        		btnHome.setBackground(new JButton().getBackground());
+        		btnConsultants.setBackground(new JButton().getBackground());
+        		btnAdministration.setBackground(new JButton().getBackground());
+        		btnHRMenu.setBackground(SystemColor.activeCaption);
+        		btnEKOMenu.setBackground(new JButton().getBackground());
         	}
         });
         
         Icon HomeIcon = new ImageIcon("source/images/home_logo2.png");
-        JButton btnHome= new JButton("Home");
+       btnHome= new JButton("Home");
+        btnHome.setBackground(SystemColor.activeCaption);
         btnHome.setIcon(HomeIcon);
         btnHome.setHorizontalAlignment(SwingConstants.LEFT);
         btnHome.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		CardLayout cardLayout = (CardLayout) secondMenuCards.getLayout();
         		cardLayout.show(secondMenuCards, "homeMenuCard");
+        		btnHome.setBackground(SystemColor.activeCaption);
+        		btnConsultants.setBackground(new JButton().getBackground());
+        		btnAdministration.setBackground(new JButton().getBackground());
+        		btnHRMenu.setBackground(new JButton().getBackground());
+        		btnEKOMenu.setBackground(new JButton().getBackground());
         	}
         });
         btnHome.setBounds(0, 12, 153, 25);
@@ -255,20 +277,25 @@ public class GUIHome  {
         mainMenuPane.add(btnHRMenu);
         
         Icon ConsultantIcon = new ImageIcon("source/images/Consultant_logo.png");
-        JButton btnConsultants= new JButton("Consultants");
+       btnConsultants= new JButton("Consultants");
         btnConsultants.setIcon(ConsultantIcon);
         btnConsultants.setHorizontalAlignment(SwingConstants.LEFT);
         btnConsultants.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		CardLayout cardLayout = (CardLayout) secondMenuCards.getLayout();
         		cardLayout.show(secondMenuCards, "consultantMenuCard");
+        		btnHome.setBackground(new JButton().getBackground());
+        		btnConsultants.setBackground(SystemColor.activeCaption);
+        		btnAdministration.setBackground(new JButton().getBackground());
+        		btnHRMenu.setBackground(new JButton().getBackground());
+        		btnEKOMenu.setBackground(new JButton().getBackground());
         	}
         });
         btnConsultants.setBounds(0, 90, 153, 25);
         mainMenuPane.add(btnConsultants);
         
         Icon AdminIcon = new ImageIcon("source/images/Admin_logo.png");
-        JButton btnAdministration = new JButton("Administration");
+        btnAdministration = new JButton("Administration");
         btnAdministration.setIcon(AdminIcon);
         btnAdministration.setHorizontalAlignment(SwingConstants.LEFT);
         
@@ -276,6 +303,11 @@ public class GUIHome  {
         	public void actionPerformed(ActionEvent e) {
         		CardLayout cardLayout = (CardLayout) secondMenuCards.getLayout();
         		cardLayout.show(secondMenuCards, "adminMenuCard");
+        		btnHome.setBackground(new JButton().getBackground());
+        		btnConsultants.setBackground(new JButton().getBackground());
+        		btnAdministration.setBackground(SystemColor.activeCaption);
+        		btnHRMenu.setBackground(new JButton().getBackground());
+        		btnEKOMenu.setBackground(new JButton().getBackground());
         	}
         });
         btnAdministration.setBounds(0, 116, 153, 25);
@@ -333,6 +365,7 @@ public class GUIHome  {
         //Create and set up the window.
     	
         frame = new JFrame("Hyber");
+        frame.setResizable(false);
         frame.setBounds(300, 100, 1200, 537);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
