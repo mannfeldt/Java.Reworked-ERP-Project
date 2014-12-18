@@ -52,7 +52,6 @@ public class ConTimeReport extends JPanel {
 				ProjectMember n = new ProjectMember();
 				n=(ProjectMember) projectbox.getSelectedItem();
 				
-				
 				String projekt = n.getProjectNumber().toString();
 				String start = starttp.getText();
 				String stop = stoptp.getText();

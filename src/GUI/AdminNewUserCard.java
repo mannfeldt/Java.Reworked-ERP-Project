@@ -1,5 +1,6 @@
 package GUI;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
@@ -7,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 
 import controllers.AdminNewUserCardController;
+import controllers.InputHandler;
 import controllers.TextFieldLimit;
 
 import java.awt.event.ActionListener;
@@ -20,6 +22,7 @@ public class AdminNewUserCard extends JPanel {
 	private JTextField txtLastName;
 	private JTextField txtPassword;
 	JComboBox<String> comboBox;
+	private InputHandler  inputhandler = new InputHandler();
 	private AdminNewUserCardController Controller;
 
 	public AdminNewUserCard() {
@@ -104,8 +107,10 @@ public class AdminNewUserCard extends JPanel {
 				String pass = txtPassword.getText();
 				String name = txtFirstName.getText();
 				String surname = txtLastName.getText();
-
-				Controller.addNewPerson(ssn, pass, name, surname, AuthorLevel);
+				
+				if(inputhandler.checkIFSSN(ssn)){
+					Controller.addNewPerson(ssn, pass, name, surname, AuthorLevel);
+				}
 			}
 		});
 		button.setBounds(89, 214, 116, 29);
