@@ -50,7 +50,7 @@ public class LoginController implements ActionListener {
         login = mapper.selectIfExists(login);
         
         if (login.getIsThere() == 1) {
-            GUIHome.createAndShowGUI();
+            GUIHome.createAndShowGUI(SSN);
             
             this.guiLogin.dispose();
             System.out.println("Disposed login GUI");

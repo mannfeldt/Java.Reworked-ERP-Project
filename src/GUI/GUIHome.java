@@ -20,6 +20,7 @@ public class GUIHome  {
     final static String BUTTONPANEL = "BUTTONPANEL";
     final static String TEXTPANEL = "TEXTPANEL";
     private static JFrame frame;
+    public static String loggedinuser;
     
      
     public void addComponentToPane(Container pane) {
@@ -328,8 +329,9 @@ public class GUIHome  {
      * event dispatch thread.
      * @wbp.parser.entryPoint
      */
-     public static void createAndShowGUI() {
+     public static void createAndShowGUI(String SSN) {
         //Create and set up the window.
+    	loggedinuser=SSN;
         frame = new JFrame("Hyber");
         frame.setBounds(300, 100, 1200, 537);
 

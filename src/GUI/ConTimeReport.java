@@ -38,11 +38,11 @@ public class ConTimeReport extends JPanel {
 	private DateFormat df = DateFormat.getDateInstance();
 	private Date datenow =new Date();
 	ConsultTimeReportController controller = new ConsultTimeReportController();
+	String user = GUIHome.loggedinuser;
 	
 
 	public ConTimeReport() {
 		setLayout(null);
-		
 		setBounds(100, 100, 541, 333);
 		
 		JButton btnConfirmTimeReport = new JButton("Confirm");
@@ -50,14 +50,14 @@ public class ConTimeReport extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				ProjectMember n = new ProjectMember();
-				//n=(ProjectMember) projectbox.getSelectedItem();
+				n=(ProjectMember) projectbox.getSelectedItem();
 				
 				
 				String projekt = n.getProjectNumber().toString();
 				String start = starttp.getText();
 				String stop = stoptp.getText();
 				String date = df.format(dateChooserTimeReport.getDate());
-				//controller.addTimeReport(SSN,projekt,date,start,stop);
+				controller.addTimeReport(user,projekt,date,start,stop);
 			}
 		});
 		btnConfirmTimeReport.setBounds(66, 204, 124, 23);
@@ -101,14 +101,14 @@ public class ConTimeReport extends JPanel {
 		projectbox.setBounds(66, 45, 432, 20);
 		add(projectbox);
 		
-//		projects=controller.getprojects(SSN);
-//		
-//		for(int i =0;i<projects.size();i++){
-//			projectbox.addItem(projects.get(i));
-//			
-//			
-//			
-//		}
+		projects=controller.getprojects(user);
+		
+		for(int i =0;i<projects.size();i++){
+			projectbox.addItem(projects.get(i));
+			
+			
+			
+		}
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
