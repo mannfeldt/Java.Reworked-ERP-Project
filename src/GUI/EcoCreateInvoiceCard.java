@@ -7,6 +7,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -21,6 +22,7 @@ public final class EcoCreateInvoiceCard extends JPanel {
     private JComboBox comboBoxProject;
     private DefaultComboBoxModel customerList;
     private DefaultComboBoxModel projectsList;
+    private JTextArea textAreaBillingAdress;
 
     /**
      * Constructor
@@ -100,7 +102,12 @@ public final class EcoCreateInvoiceCard extends JPanel {
         comboBoxProject = new JComboBox();
         comboBoxProject.setBounds(20, 250, 200, 25);
         add(comboBoxProject);
-        comboBoxProject.addActionListener(controller);
+        comboBoxProject.addItemListener(new ItemListener() {
+
+            @Override
+            public void itemStateChanged(ItemEvent ItemEvent) {
+            }
+        });
         
 
         JLabel lblProject = new JLabel("Project");
@@ -129,11 +136,15 @@ public final class EcoCreateInvoiceCard extends JPanel {
         add(labelCustomer);
 
         // This fires when selection is changed in customer combobox
-        comboBoxCustomer.addItemListener((ItemEvent e) -> {
-        String selectedCustomer = getSelectedCustomer().toString();
-        DefaultComboBoxModel customerProjects = 
-        controller.getCustomerProjects(selectedCustomer);
-        setProjectsList(customerProjects);
+        comboBoxCustomer.addItemListener(new ItemListener() {
+
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                String selectedCustomer = getSelectedCustomer().toString();
+                DefaultComboBoxModel customerProjects =
+                        controller.getCustomerProjects(selectedCustomer);
+                setProjectsList(customerProjects);
+            }
         });
     }
 
@@ -141,7 +152,7 @@ public final class EcoCreateInvoiceCard extends JPanel {
      * Customer billing adress
      */
     private void createBillingAdress() {
-        JTextArea textAreaBillingAdress = new JTextArea();
+        textAreaBillingAdress = new JTextArea();
         textAreaBillingAdress.setEditable(false);
         textAreaBillingAdress.setBounds(20, 110, 200, 100);
         add(textAreaBillingAdress);
@@ -172,5 +183,9 @@ public final class EcoCreateInvoiceCard extends JPanel {
     public void setProjectsList(DefaultComboBoxModel projectsList) {
         this.projectsList = projectsList;
         comboBoxProject.setModel(projectsList);
+    }
+    
+    private void setBillingAdress(String adress) {
+        textAreaBillingAdress.setText(adress);
     }
 }
