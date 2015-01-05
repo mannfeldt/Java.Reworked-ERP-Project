@@ -58,22 +58,14 @@ public class InputHandler {
 	
 	public boolean checkIFTime(String pn){
 		String input = pn;
-		String messege="start/stop must be on form: hhmm";
+		String messege="Hours must be spcified, 1-24";
 		boolean isValid = false;
 		
-		if(pn.length()==4){
-			String hour = input.substring(0, 2);
-			String min = input.substring(2, 4);
-			
-			if((Integer.parseInt(hour)<25) & (Integer.parseInt(hour)>0)){
-				if((Integer.parseInt(min)<61) & (Integer.parseInt(min)>0)){
+
+			if((Integer.parseInt(input)<25) & (Integer.parseInt(input)>0)){
 					isValid=true;
-				}else{messege="start/stop, min not valid (hhmm)";}
-			}else{messege="start/stop, hour not valid (hhmm)";}
-			
-			
-		}
-		
+			}
+
 
 		if(isValid==false){
 		JOptionPane.showMessageDialog(null,
