@@ -8,6 +8,7 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -27,16 +28,30 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 
 import objects.ProjectMember;
+import objects.TimeReport;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+
+import javax.swing.JList;
+
+import objects.User;
 
 public class ConTimeReport extends JPanel {
 
 	private JPanel contentPane;
 	private JTextField worktxtf;
+	
+	DefaultListModel<TimeReport> allTimeReportModel;
+	private List<TimeReport> timeReportList;
+	private JList<TimeReport> list;
+	
+
+	
 	private JTextField hourtextf;
 	private List<ProjectMember> projects;
 	private JComboBox projectbox;
@@ -49,9 +64,17 @@ public class ConTimeReport extends JPanel {
 	
 
 	public ConTimeReport() {
+		
+		addComponentListener(new ComponentAdapter() {
+			@Override
+			public void componentShown(ComponentEvent e) {
+				getTimeReports();
+			}
+		});
 		setLayout(null);
-		setBounds(100, 100, 541, 333);
+		setBounds(100, 100, 834, 333);
 		setBackground(Color.LIGHT_GRAY);
+		
 		
 		JButton btnConfirmTimeReport = new JButton("Confirm");
 		btnConfirmTimeReport.addActionListener(new ActionListener() {
@@ -67,6 +90,8 @@ public class ConTimeReport extends JPanel {
 				
 			if(inputhandler.checkIFTime(start)){
 					controller.addTimeReport(user,projekt,date,start,stop);	
+					allTimeReportModel.removeAllElements();
+					getTimeReports();
 			}
 			
 			}
@@ -86,7 +111,7 @@ public class ConTimeReport extends JPanel {
 		
 		worktxtf = new JTextField();
 		worktxtf.setColumns(10);
-		worktxtf.setBounds(66, 126, 432, 20);
+		worktxtf.setBounds(66, 126, 260, 20);
 		add(worktxtf);
 		worktxtf.setDocument(new TextFieldLimit(25));
 		
@@ -123,8 +148,19 @@ public class ConTimeReport extends JPanel {
 		add(label_3);
 		
 		projectbox = new JComboBox();
-		projectbox.setBounds(66, 45, 432, 20);
+		projectbox.setBounds(66, 45, 260, 20);
 		add(projectbox);
+		
+		list = new JList<TimeReport>();
+		allTimeReportModel = new DefaultListModel<TimeReport>();
+		list.setModel(allTimeReportModel);
+		list.setSelectedIndex(0);
+		list.setBounds(356, 71, 425, 156);
+		add(list);
+		
+		JLabel lblRecent = new JLabel("Recent Timereports");
+		lblRecent.setBounds(356, 45, 400, 14);
+		add(lblRecent);
 		
 		projects=controller.getprojects(user);
 		
@@ -137,6 +173,19 @@ public class ConTimeReport extends JPanel {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
+		
+	}
+
+
+	private void getTimeReports() {
+	
+		timeReportList = controller.getTimeReport(user);
+		if (timeReportList.size() > 0) {
+			for (int i = 0; i < timeReportList.size(); i++) {
+				allTimeReportModel.add(i, timeReportList.get(i));
+			}
+			list.setSelectedIndex(0);
+	}
 		
 	}
 }

@@ -6,6 +6,7 @@ import mapper.MyBatisConnectionFactory;
 import mapper.db_Mapper;
 import objects.TimeReport;
 import objects.ProjectMember;
+import objects.User;
 
 public class ConsultTimeReportController {
 	db_Mapper db_mapper = new db_Mapper(MyBatisConnectionFactory.getSqlSessionFactory());
@@ -31,5 +32,11 @@ public void addTimeReport(String sSN, String projekt, String date, String start,
 	
 	db_mapper.insertNewTime(n);
 
+}
+
+public List<TimeReport> getTimeReport(String sSN) {
+	List<TimeReport> timereports;
+	timereports = db_mapper.getTimeReports(sSN);
+	return timereports;
 }
 }

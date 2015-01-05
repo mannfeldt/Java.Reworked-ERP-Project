@@ -70,6 +70,14 @@
 		<result property="hourlyRate" column="hourlyRate" />
 		<result property="workload" column="workload" />
 	</resultMap>
+	
+	<resultMap id="AllTimeReports" type="TimeReport">
+		<result property="SSN" column="SSN" />
+		<result property="projectNumber" column="projectNumber" />
+		<result property="date" column="date" />
+		<result property="startTime" column="startTime" />
+		<result property="stopTime" column="stopTime" />
+	</resultMap>
         
         
 	
@@ -235,6 +243,13 @@
 		FROM Projects
 		
 	</select>
+	
+	  <select id="selectAllReports" parameterType="String"
+                resultMap="AllTimeReports">
+            SELECT *
+            FROM TimeReports
+            WHERE SSN = #{SSN}
+        </select>
         
   
 </mapper>

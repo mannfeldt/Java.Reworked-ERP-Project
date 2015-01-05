@@ -40,8 +40,8 @@ public class TimeReport {
 	}
 	
 	public String toString() {
-		return "TimeReport [SSN=" + SSN + ", projectNumber=" + projectNumber
-				+ ", date=" + date + ", startTime=" + startTime + ", stopTime="
+		return "Project: "+projectNumber
+				+ ", date: " + date + ", Hours: " + startTime + ", Work: "
 				+ stopTime + "]";
 	}
 
