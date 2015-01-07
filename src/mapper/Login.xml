@@ -78,6 +78,11 @@
 		<result property="startTime" column="startTime" />
 		<result property="stopTime" column="stopTime" />
 	</resultMap>
+	
+	<resultMap id="Skillsen" type="Skill">
+		<result property="skillsId" column="skillsId" />
+		<result property="description" column="description" />
+	</resultMap>
         
         
 	
@@ -260,6 +265,19 @@
 		
 		
 	</select>
+	
+	 <select id="selectAllSkills" parameterType="Skill"
+		resultMap="Skillsen">
+		SELECT
+		p.skillsid,
+		e.description
+      
+	FROM ConsultSkills p
+	LEFT JOIN Skills e ON p.skillsid = e.skillsid
+	where p.SSN =#{SSN}
+		
+	</select>
+	
         
         
   

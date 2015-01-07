@@ -5,6 +5,8 @@ import java.util.List;
 import mapper.MyBatisConnectionFactory;
 import mapper.db_Mapper;
 import objects.ProjectMember;
+import objects.Skill;
+
 import objects.User;
 import objects.Project;
 
@@ -33,5 +35,10 @@ public class EcoCreateAllocationController {
 		db_mapper.insertNewAllocation(member);
 	
 }
+	public List<Skill> getSkill(String SSN) {
+		List<Skill> users;
+		users = db_mapper.getAllSkills(SSN);
+		return users;
+	}
 
 }

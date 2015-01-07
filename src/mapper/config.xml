@@ -15,7 +15,7 @@
 		<typeAlias alias="ProjectMember" type="objects.ProjectMember" />
 		<typeAlias alias="TimeReport" type="objects.TimeReport" />
 		<typeAlias alias="Customer" type="objects.Customer" />
-
+		<typeAlias alias="Skill" type="objects.Skill" />
 
 
 	</typeAliases>

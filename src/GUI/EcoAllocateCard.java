@@ -20,9 +20,15 @@ import javax.swing.ListSelectionModel;
 
 import controllers.EcoCreateAllocationController;
 import objects.Project;
+import objects.Skill;
+
 import objects.User;
 import controllers.TextFieldLimit;
+
 import java.awt.Color;
+
+import javax.swing.event.ListSelectionListener;
+import javax.swing.event.ListSelectionEvent;
 
 public class EcoAllocateCard extends JPanel {
 	private JTextField OtherRoleText;
@@ -30,6 +36,8 @@ public class EcoAllocateCard extends JPanel {
 	DefaultListModel<User> ListModelUser;
 	EcoCreateAllocationController controller = new EcoCreateAllocationController();
 	private JTextField HourlyRateText;
+	private JComboBox projectbox;
+	private List<Skill> skilllista;
 	boolean other=false;
 	/**
 	 * Create the panel.
@@ -38,7 +46,9 @@ public class EcoAllocateCard extends JPanel {
 		setBackground(Color.LIGHT_GRAY);
 		setLayout(null);
 		
-	
+		projectbox = new JComboBox();
+		projectbox.setBounds(66, 307, 154, 20);
+		add(projectbox);
 		
 		JLabel lblChooseConsultant = new JLabel("1. Choose consultant");
 		lblChooseConsultant.setBounds(20, 33, 147, 14);
@@ -183,6 +193,22 @@ public class EcoAllocateCard extends JPanel {
 		scrollPane_1.setSize(200, 250);
 		
 		final JList ConsultantList = new JList();
+		ConsultantList.addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent e) {
+				
+				Updatebox();
+			}
+
+			private void Updatebox() {
+				projectbox.removeAllItems();
+				String SSN = ListModelUser.getElementAt(ConsultantList.getSelectedIndex()).getSSN();
+				skilllista=controller.getSkill(SSN);
+				
+				for(int i=0; i<skilllista.size();i++){
+				projectbox.addItem(skilllista.get(i));
+				}
+			}
+		});
 		scrollPane_1.setViewportView(ConsultantList);
 		ConsultantList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		ConsultantList.setModel(ListModelUser);
@@ -246,6 +272,12 @@ public class EcoAllocateCard extends JPanel {
 		JLabel label = new JLabel("%");
 		label.setBounds(596, 95, 55, 14);
 		add(label);
+		
+		JLabel lblSkills = new JLabel("Skills");
+		lblSkills.setBounds(20, 310, 117, 14);
+		add(lblSkills);
+		
+	
 
 	}
 }

@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import objects.Skill;
+
 import objects.TimeReport;
 import objects.ProjectMember;
 import objects.Login;
@@ -267,6 +269,24 @@ public class db_Mapper {
 
 			try {
 				list = session.selectList("Login.selectAllProjectMemebers",projectNumber);
+			} finally {
+				session.close();
+			}
+			return list;
+		}
+
+
+
+	
+
+
+
+		public List<Skill> getAllSkills(String SSN) {
+			List<Skill> list = null;
+			SqlSession session = sqlSessionFactory.openSession();
+
+			try {
+				list = session.selectList("Login.selectAllSkills",SSN);
 			} finally {
 				session.close();
 			}
