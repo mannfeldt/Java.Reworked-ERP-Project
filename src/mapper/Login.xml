@@ -256,7 +256,8 @@
 		resultMap="Projects">
 		SELECT *
 		FROM ProjectMembers
-		ORDER BY SSN ASC
+		WHERE projectNumber = #{projectNumber}
+		
 		
 	</select>
         

@@ -261,16 +261,20 @@ public class db_Mapper {
 
 
 
-		public List<objects.ProjectMember> getAllProjectMembers() {
+		public List<objects.ProjectMember> getAllProjectMembers(String projectNumber) {
 			List<ProjectMember> list = null;
 			SqlSession session = sqlSessionFactory.openSession();
 
 			try {
-				list = session.selectList("Login.selectAllProjectMemebers");
+				list = session.selectList("Login.selectAllProjectMemebers",projectNumber);
 			} finally {
 				session.close();
 			}
 			return list;
 		}
+
+
+
+	
 
 }

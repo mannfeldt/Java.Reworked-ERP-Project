@@ -4,6 +4,7 @@ import java.util.List;
 
 import mapper.MyBatisConnectionFactory;
 import mapper.db_Mapper;
+import objects.Project;
 import objects.ProjectMember;
 import objects.TimeReport;
 
@@ -14,10 +15,15 @@ public class HrEmployeeOverviewController {
 		// TODO Auto-generated constructor stub
 	}
 
-	public List<ProjectMember> getAllUsers() {
+	public List<ProjectMember> getAllUsers(String pnr) {
 		List<ProjectMember> ProjectMember;
-		ProjectMember = db_mapper.getAllProjectMembers();
+		ProjectMember = db_mapper.getAllProjectMembers(pnr);
 		return ProjectMember;
 	}
 
+	public List<Project> getprojects() {
+		List<Project> projects;
+		projects = db_mapper.getAllProjects();
+		return projects;
+	}
 }
