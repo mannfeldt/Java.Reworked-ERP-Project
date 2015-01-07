@@ -43,6 +43,11 @@ public class ProjectMember {
 				+ projectNumber + ", role: " + role  + ", workload: " + workload +" %";
 	}
 	
+	public String toStringAll() {
+		return "SSN: " +SSN+", projectNumber: "
+				+ projectNumber + ", role: " + role  + ", workload: " + workload +" %";
+	}
+	
 	
 	
 }

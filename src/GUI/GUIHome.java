@@ -31,7 +31,7 @@ public class GUIHome  {
     private JButton btnWages;
     private JButton btnAllocate;
     private JButton btnSendEmail;
-    private JButton btnProjects;
+    private JButton btnEmpOverview;
     private JButton btnEmployees;
     private JButton btnContactHrm;
     private JButton btnContactEconomy;
@@ -119,22 +119,22 @@ public class GUIHome  {
         secondMenuCards.add(HRmenuCard, "HRmenuCard");
         HRmenuCard.setLayout(null);
         
-        btnProjects = new JButton("Projects");
-        btnProjects.setHorizontalAlignment(SwingConstants.LEFT);
-        btnProjects.addActionListener(new ActionListener() {
+        btnEmpOverview = new JButton("Employees");
+        btnEmpOverview.setHorizontalAlignment(SwingConstants.LEFT);
+        btnEmpOverview.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		CardLayout cardLayout = (CardLayout) viewCards.getLayout();
-        		HrProjectCard HPC = new HrProjectCard();
+        		HrEmpOverview HPC = new HrEmpOverview();
         		viewCards.add(HPC, "HPC");
         		cardLayout.show(viewCards, "HPC");
-        		btnProjects.setBackground(SystemColor.activeCaption);
+        		btnEmpOverview.setBackground(SystemColor.activeCaption);
         		btnEmployees.setBackground(new JButton().getBackground());
         	}
         });
-        btnProjects.setBounds(0, 12, 153, 25);
-        HRmenuCard.add(btnProjects);
+        btnEmpOverview.setBounds(0, 12, 153, 25);
+        HRmenuCard.add(btnEmpOverview);
         
-       btnEmployees = new JButton("Employees");
+       btnEmployees = new JButton("Updt Employees");
         btnEmployees.setHorizontalAlignment(SwingConstants.LEFT);
         btnEmployees.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {        		
@@ -143,7 +143,7 @@ public class GUIHome  {
         		viewCards.add(HEC, "HEC");
         		cardLayout.show(viewCards, "HEC");
         		btnEmployees.setBackground(SystemColor.activeCaption);
-        		btnProjects.setBackground(new JButton().getBackground());
+        		btnEmpOverview.setBackground(new JButton().getBackground());
         	}
         });
         frame.getContentPane().setLayout(null);
@@ -303,7 +303,7 @@ public class GUIHome  {
         		btnAdministration.setBackground(new JButton().getBackground());
         		btnHRMenu.setBackground(SystemColor.activeCaption);
         		btnEKOMenu.setBackground(new JButton().getBackground());
-        		    btnProjects.setBackground(new JButton().getBackground());
+        		    btnEmpOverview.setBackground(new JButton().getBackground());
         		    btnEmployees.setBackground(new JButton().getBackground());
         	}
         });
