@@ -57,8 +57,8 @@ public class Employee {
 	}
 	
 	public String toString() {
-		return "SSN: " + SSN 
-				+ " wage: " + wage;
+		return  SSN 
+				+ " wage: " + wage+" SEK";
 	}
 
 

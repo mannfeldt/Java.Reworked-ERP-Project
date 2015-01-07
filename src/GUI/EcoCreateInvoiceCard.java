@@ -16,7 +16,11 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JList;
-
+/**
+ * GUIClass for EcoCreateInvoiceCard
+ * @author Jimmy
+ *
+ */
 public final class EcoCreateInvoiceCard extends JPanel {
 
     private JTextField textFieldInvoiceDate;

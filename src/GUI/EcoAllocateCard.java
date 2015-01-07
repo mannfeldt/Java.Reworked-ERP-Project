@@ -29,7 +29,11 @@ import java.awt.Color;
 
 import javax.swing.event.ListSelectionListener;
 import javax.swing.event.ListSelectionEvent;
-
+/**
+ * GUIClass for EcoAllocateCard
+ * @author Jimmy
+ *
+ */
 public class EcoAllocateCard extends JPanel {
 	private JTextField OtherRoleText;
 	private DefaultListModel<Project> ListModelProject;
@@ -228,7 +232,7 @@ public class EcoAllocateCard extends JPanel {
 		ProjectList.setSelectedIndex(0);
 		
 		JButton AllocateButton = new JButton("Allocate Resource");
-		AllocateButton.setBounds(538, 276, 133, 23);
+		AllocateButton.setBounds(444, 182, 227, 23);
 		HourlyRateText.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent arg0) {

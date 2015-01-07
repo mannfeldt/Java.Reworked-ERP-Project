@@ -12,7 +12,12 @@ import javax.swing.JList;
 import objects.Employee;
 import objects.User;
 import java.awt.Color;
-
+import javax.swing.JScrollPane;
+/**
+ * GUIClass for EcoWagesCard
+ * @author Jimmy
+ *
+ */
 public class EcoWagesCard extends JPanel {
 
 	private EcoWagesCardController Controller;
@@ -27,14 +32,19 @@ public class EcoWagesCard extends JPanel {
 		Controller = new EcoWagesCardController();		
 
 		employeesWageModel = new DefaultListModel<Employee>();
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(21, 41, 399, 334);
+		add(scrollPane);
 		employeesWageList = new JList<Employee>();
-		employeesWageList.setBounds(6, 6, 420, 441);
-		add(employeesWageList);
+		scrollPane.setViewportView(employeesWageList);
 		employeesWageList.setModel(employeesWageModel);
 		
 		getAllEmployees();
 	}
-	
+	/**
+	 * Method for getting all Employess
+	 */
 	private void getAllEmployees(){
 		employees = Controller.getAllEmployees();
 		for (int i = 0; i < employees.size(); i++) {

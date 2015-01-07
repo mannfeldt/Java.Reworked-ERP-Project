@@ -4,7 +4,11 @@ import java.awt.Color;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
-
+/**
+ * GUIClass for EcoCreateProjectCard
+ * @author Jimmy
+ *
+ */
 public class EcoEmailCard extends JPanel {
 
 	

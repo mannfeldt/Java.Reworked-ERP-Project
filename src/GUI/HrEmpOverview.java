@@ -23,7 +23,11 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+/**
+ * GUIClass for HrEmpOverview
+ * @author Jimmy
+ *
+ */
 public class HrEmpOverview extends JPanel {
 
 	private JPanel contentPane;
@@ -59,7 +63,7 @@ public class HrEmpOverview extends JPanel {
 		
 		
 		projectbox = new JComboBox();
-		projectbox.setBounds(37, 85, 289, 23);
+		projectbox.setBounds(37, 85, 171, 23);
 		add(projectbox);
 		
 		projects=controller.getprojects();
@@ -70,7 +74,7 @@ public class HrEmpOverview extends JPanel {
 		projectbox.setSelectedIndex(0);
 		
 		JButton btnShow = new JButton("Show");
-		btnShow.setBounds(328, 85, 90, 23);
+		btnShow.setBounds(218, 85, 90, 23);
 		add(btnShow);
 		
 		JLabel lblSelectProject = new JLabel("Select project");
@@ -89,7 +93,10 @@ public class HrEmpOverview extends JPanel {
 		
 		
 	}
-
+/**
+ * Method to ger all projectmemebers to a list into GUI
+ * @param pnr Projektnumber/name
+ */
 	private void getAllProjectMembers(String pnr) {
 		projctMemberList = controller.getAllUsers(pnr);
 		if (projctMemberList.size() > 0) {

@@ -14,7 +14,7 @@ import mapper.MyBatisConnectionFactory;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 /**
- *
+ *ControllerClass for handling LoginCardGUI
  * @author Askeng
  */
 public class LoginController implements ActionListener {

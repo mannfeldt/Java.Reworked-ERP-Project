@@ -4,7 +4,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.Font;
-
+/**
+ * GUIClass for HomeDefaultCard
+ * @author Jimmy
+ *
+ */
 public class HomeDefaultCard extends JPanel {
 
 

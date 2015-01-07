@@ -40,7 +40,11 @@ import java.awt.event.KeyEvent;
 import javax.swing.JList;
 
 import objects.User;
-
+/**
+ * GUIClass for ConTimeReport
+ * @author Jimmy
+ *
+ */
 public class ConTimeReport extends JPanel {
 
 	private JPanel contentPane;
@@ -176,7 +180,9 @@ public class ConTimeReport extends JPanel {
 		
 	}
 
-
+/**
+ * Method to get Timereports
+ */
 	private void getTimeReports() {
 	
 		timeReportList = controller.getTimeReport(user);

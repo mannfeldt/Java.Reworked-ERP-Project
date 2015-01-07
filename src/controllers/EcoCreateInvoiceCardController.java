@@ -9,7 +9,11 @@ import mapper.MyBatisConnectionFactory;
 import mapper.db_Mapper;
 import objects.Customer;
 import objects.Project;
-
+/**
+ * ControllerClass for handling EcoCreateInvoceCardGUI
+ * @author Jimmy
+ *
+ */
 public final class EcoCreateInvoiceCardController implements ActionListener{
 
     private final EcoCreateInvoiceCard view;

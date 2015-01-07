@@ -60,7 +60,7 @@ public class Customer {
 	}
 	
 	public String toString() {
-		return companyName +": orgs: "+ organisationNumber;
+		return companyName +", orgnr: "+ organisationNumber;
 	}
 	
 	

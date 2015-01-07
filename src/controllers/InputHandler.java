@@ -1,10 +1,18 @@
 package controllers;
 
 import javax.swing.JOptionPane;
-
+/**
+ * ControllerClass for handling textfieldsinputs
+ * @author Jimmy
+ *
+ */
 public class InputHandler {
 
-	
+/**
+ * Method for checking if a SSN is valid
+ * @param SSN Social Security Number
+ * @return true or false 
+ */
 	public boolean checkIFSSN(String SSN){
 		
 		boolean isSSNValid = false;
@@ -38,7 +46,11 @@ public class InputHandler {
 		return isSSNValid;
 	}
 	
-	
+	/**
+	 * Method to check projectnumber is defined
+	 * @param pn ProjectNumber
+	 * @return true/false
+	 */
 	public boolean checkIFProjectNumber(String pn){
 		
 		boolean isValid = false;
@@ -55,7 +67,11 @@ public class InputHandler {
 		}
 		return isValid;
 	}
-	
+	/**
+	 * Method for checking if time is defined
+	 * @param pn ProjectNumber
+	 * @return True/False
+	 */
 	public boolean checkIFTime(String pn){
 		String input = pn;
 		String messege="Hours must be spcified, 1-24";

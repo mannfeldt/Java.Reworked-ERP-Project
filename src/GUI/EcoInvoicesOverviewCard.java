@@ -13,7 +13,11 @@ import javax.swing.JList;
 import javax.swing.JLabel;
 
 import objects.PaymentIncoming;
-
+/**
+ * GUIClass for EcoInvoicesOverviewCard
+ * @author Jimmy
+ *
+ */
 public class EcoInvoicesOverviewCard extends JPanel {
 
 
@@ -56,6 +60,9 @@ public class EcoInvoicesOverviewCard extends JPanel {
 		updateInvoiceList();
 	}
 	
+	/**
+	 * Method for updating gui-list of invoices
+	 */
 	private void updateInvoiceList() {
 		paiedModel.removeAllElements();
 		pendingModel.removeAllElements();

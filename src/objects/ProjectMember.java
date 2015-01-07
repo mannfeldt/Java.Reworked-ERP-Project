@@ -39,13 +39,12 @@ public class ProjectMember {
 	}
 	
 	public String toString() {
-		return "projectNumber: "
-				+ projectNumber + ", role: " + role  + ", workload: " + workload +" %";
+		return projectNumber + ", " + role;
 	}
 	
 	public String toStringAll() {
-		return "SSN: " +SSN+", projectNumber: "
-				+ projectNumber + ", role: " + role  + ", workload: " + workload +" %";
+		return SSN
+				 + ", role: " + role  + ", workload: " + workload +" %";
 	}
 	
 	

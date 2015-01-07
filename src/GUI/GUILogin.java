@@ -14,7 +14,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-
+/**
+ * GUIClass for GUILogin
+ * @author Jimmy
+ *
+ */
 public class GUILogin extends JFrame {
 
     private final JPanel contentPane;

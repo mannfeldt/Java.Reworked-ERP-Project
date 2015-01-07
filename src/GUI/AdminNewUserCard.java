@@ -16,7 +16,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-
+/**
+ * GUIClass for AdminNewUserCard
+ * @author Jimmy
+ *
+ */
 public class AdminNewUserCard extends JPanel {
 	private JTextField txtSSN;
 	private JTextField txtFirstName;
@@ -102,6 +106,7 @@ public class AdminNewUserCard extends JPanel {
 		
 		JButton button = new JButton("Create User");
 		button.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent e) {
 				
 				String AuthorLevel = comboBox.getSelectedItem().toString();

@@ -23,7 +23,11 @@ import java.util.Date;
 import java.util.List;
 
 import com.toedter.calendar.JDateChooser;
-
+/**
+ * GUIClass for EcoCreateProjectCard
+ * @author Jimmy
+ *
+ */
 public class EcoCreateProjectCard extends JPanel {
 
 	private EcoCreateProjectCardController Controller;
@@ -46,7 +50,7 @@ public class EcoCreateProjectCard extends JPanel {
 
 
 		txtEstCost = new JTextField();
-		txtEstCost.setBounds(124, 57, 134, 28);
+		txtEstCost.setBounds(124, 57, 278, 28);
 		txtEstCost.setColumns(10);
 		add(txtEstCost);
 		txtEstCost.setDocument(new TextFieldLimit(10));
@@ -65,7 +69,7 @@ public class EcoCreateProjectCard extends JPanel {
 
 
 		txtProjNumber = new JTextField();
-		txtProjNumber.setBounds(124, 97, 134, 28);
+		txtProjNumber.setBounds(124, 97, 278, 28);
 		txtProjNumber.setColumns(10);
 		add(txtProjNumber);
 		txtProjNumber.setDocument(new TextFieldLimit(6));
@@ -82,12 +86,12 @@ public class EcoCreateProjectCard extends JPanel {
 		label_2.setBounds(19, 187, 59, 16);
 		add(label_2);
 
-		JLabel label_3 = new JLabel("Project number");
-		label_3.setBounds(19, 107, 95, 16);
-		add(label_3);
+		JLabel lblProjectname = new JLabel("Project name");
+		lblProjectname.setBounds(19, 107, 95, 16);
+		add(lblProjectname);
 
 		comboBox = new JComboBox();
-		comboBox.setBounds(124, 18, 134, 27);
+		comboBox.setBounds(124, 18, 278, 27);
 		add(comboBox);
 
 		customerList = Controller.getCustomers();
@@ -113,7 +117,7 @@ public class EcoCreateProjectCard extends JPanel {
 				}
 			}
 		});
-		btnCreateProject.setBounds(61, 227, 132, 29);
+		btnCreateProject.setBounds(124, 213, 169, 28);
 		add(btnCreateProject);
 
 		JLabel label_4 = new JLabel("Costumer");

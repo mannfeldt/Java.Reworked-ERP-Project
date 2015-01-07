@@ -60,7 +60,7 @@ public class Project {
 	}
 	
 	public String toString() {
-		return projectNumber +" - "+ estimatedStart + " - " + estimatedCost;
+		return projectNumber ;
 	}
 	
 	

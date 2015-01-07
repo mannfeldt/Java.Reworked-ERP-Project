@@ -4,7 +4,11 @@ import java.awt.Color;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
-
+/**
+ * GUIClass for HrProjectCard
+ * @author Jimmy
+ *
+ */
 public class HrProjectCard extends JPanel {
 
 

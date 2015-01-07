@@ -11,7 +11,11 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.swing.*;
-
+/**
+ * GUIClass for GUIHome
+ * @author Jimmy
+ *
+ */
 public class GUIHome {
 			JPanel viewCards; // a panel that uses CardLayout
 			JPanel secondMenuCards;

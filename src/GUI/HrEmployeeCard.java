@@ -42,7 +42,11 @@ import java.beans.PropertyChangeEvent;
 import java.awt.event.InputMethodListener;
 import java.awt.event.InputMethodEvent;
 
-
+/**
+ * GUIClass for HrEmployeeCard
+ * @author Jimmy
+ *
+ */
 public class HrEmployeeCard extends JPanel {
 	/**
 	 * 
@@ -327,6 +331,9 @@ public class HrEmployeeCard extends JPanel {
 			    });
 
 	}
+	/**
+	 * Method for updating fields of emloyeedata, GUI
+	 */
 	private void updateFields() {
 		int a = list.getSelectedIndex();
 		if (!(a == -1)) {
@@ -366,7 +373,9 @@ public class HrEmployeeCard extends JPanel {
 
 	}
 
-
+/**
+ * Method for getting all users to a list
+ */
 	public void getAllusers() {
 		usersList = Controller.getAllUsers();
 		if (usersList.size() > 0) {
@@ -376,7 +385,9 @@ public class HrEmployeeCard extends JPanel {
 			list.setSelectedIndex(0);
 		}
 	}
-	
+	/**
+	 * Method for updating(recreate) emloyeedata, db
+	 */
 	private void updateUser() {
 		User newUser = new User();
 		newUser.setSSN(txtSSN.getText());

@@ -42,7 +42,7 @@ public class TimeReport {
 	public String toString() {
 		return "Project: "+projectNumber
 				+ ", date: " + date + ", Hours: " + startTime + ", Work: "
-				+ stopTime + "]";
+				+ stopTime;
 	}
 
 	
