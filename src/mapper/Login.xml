@@ -64,7 +64,7 @@
 	</resultMap>
 	
 	<resultMap id="Projects" type="ProjectMember">
-		<result property="SSN" column="projectNumber" />
+		<result property="SSN" column="SSN" />
 		<result property="projectNumber" column="projectNumber" />
 		<result property="role" column="role" />
 		<result property="hourlyRate" column="hourlyRate" />
@@ -250,6 +250,16 @@
             FROM TimeReports
             WHERE SSN = #{SSN}
         </select>
+        
+        
+       <select id="selectAllProjectMemebers" parameterType="ProjectMember"
+		resultMap="Projects">
+		SELECT *
+		FROM ProjectMembers
+		ORDER BY SSN ASC
+		
+	</select>
+        
         
   
 </mapper>
