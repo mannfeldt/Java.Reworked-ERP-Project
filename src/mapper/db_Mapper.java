@@ -244,4 +244,19 @@ public class db_Mapper {
 
     }
 
+
+
+		public List<TimeReport> getTimeReports(String SSN) {
+			List<TimeReport> list = null;
+			SqlSession session = sqlSessionFactory.openSession();
+
+			try {
+				list = session.selectList("Login.selectAllReports",SSN);
+			} finally {
+				session.close();
+			}
+			return list;
+
+		}
+
 }
