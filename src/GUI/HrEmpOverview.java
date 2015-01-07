@@ -70,7 +70,7 @@ public class HrEmpOverview extends JPanel {
 		projectbox.setSelectedIndex(0);
 		
 		JButton btnShow = new JButton("Show");
-		btnShow.setBounds(328, 85, 62, 23);
+		btnShow.setBounds(328, 85, 90, 23);
 		add(btnShow);
 		
 		JLabel lblSelectProject = new JLabel("Select project");
