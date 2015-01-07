@@ -35,6 +35,7 @@ public class GUIHome {
 			private JButton btnContactEconomy;
 			private JButton btnTimeReport;
 			private JButton btnNewUser;
+			private JButton btnLogOut;
 
 			public void addComponentToPane(Container pane) {
 
@@ -419,6 +420,25 @@ public class GUIHome {
 				});
 				btnAdministration.setBounds(0, 116, 153, 25);
 				mainMenuPane.add(btnAdministration);
+				
+				btnLogOut = new JButton("Log out");
+				btnLogOut.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						GUILogin.main(null);
+						
+						try {
+							Thread.sleep(1250);
+						} catch (InterruptedException e1) {
+							e1.printStackTrace();
+						}
+						
+						GUIHome.frame.dispose();
+						
+					}
+				});
+				btnLogOut.setHorizontalAlignment(SwingConstants.LEFT);
+				btnLogOut.setBounds(0, 458, 153, 25);
+				mainMenuPane.add(btnLogOut);
 				pane.add(viewCards);
 				EKOmenuCard.setBackground(Color.LIGHT_GRAY);
 
