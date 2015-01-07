@@ -61,6 +61,7 @@ public class LoginController implements ActionListener {
         
         
         if (login.getIsThere() == 1) {
+        	GUIHome GUIHome = new GUIHome();
             GUIHome.createAndShowGUI();
             
             this.guiLogin.dispose();
