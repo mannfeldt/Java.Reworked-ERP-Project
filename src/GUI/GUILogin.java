@@ -98,7 +98,7 @@ public class GUILogin extends JFrame {
         contentPane.add(lblHyber);
 
         UserIdField.setText("197507211131");
-
+        
         JLabel lblNewLabel = new JLabel("New label");
         lblNewLabel.setIcon(new ImageIcon("source/images/hyberlogga_small.png"));
         lblNewLabel.setBounds(242, 25, 180, 119);

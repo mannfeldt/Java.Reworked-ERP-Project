@@ -70,9 +70,9 @@ public class EcoCreateProjectCard extends JPanel {
 		add(txtProjNumber);
 		txtProjNumber.setDocument(new TextFieldLimit(6));
 
-		JLabel label = new JLabel("Estimated cost");
-		label.setBounds(19, 67, 93, 16);
-		add(label);
+		JLabel lblProjectBudget = new JLabel("Project budget");
+		lblProjectBudget.setBounds(19, 67, 93, 16);
+		add(lblProjectBudget);
 
 		JLabel label_1 = new JLabel("Start date");
 		label_1.setBounds(19, 147, 60, 16);
