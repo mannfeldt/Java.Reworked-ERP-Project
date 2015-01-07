@@ -1,12 +1,16 @@
 package GUI;
 
 import controllers.EcoCreateInvoiceCardController;
+
 import java.awt.Color;
+
 import javax.swing.JPanel;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+
 import java.awt.Font;
 import java.awt.event.ItemEvent;
+
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -21,6 +25,7 @@ public final class EcoCreateInvoiceCard extends JPanel {
     private JComboBox comboBoxProject;
     private DefaultComboBoxModel customerList;
     private DefaultComboBoxModel projectsList;
+	private String selectedCustomer;
 
     /**
      * Constructor
@@ -129,12 +134,12 @@ public final class EcoCreateInvoiceCard extends JPanel {
         add(labelCustomer);
 
         // This fires when selection is changed in customer combobox
-        comboBoxCustomer.addItemListener((ItemEvent e) -> {
-        String selectedCustomer = getSelectedCustomer().toString();
-        DefaultComboBoxModel customerProjects = 
-        controller.getCustomerProjects(selectedCustomer);
-        setProjectsList(customerProjects);
-        });
+//        comboBoxCustomer.addItemListener((ItemEvent e)  {
+//            String selectedCustomer = getSelectedCustomer().toString();
+//            DefaultComboBoxModel customerProjects = 
+//            controller.getCustomerProjects(selectedCustomer);
+//            setProjectsList(customerProjects);
+//            });
     }
 
     /**
