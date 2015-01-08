@@ -50,7 +50,7 @@ public class EcoCreateProjectCard extends JPanel {
 
 
 		txtEstCost = new JTextField();
-		txtEstCost.setBounds(124, 57, 278, 28);
+		txtEstCost.setBounds(124, 67, 278, 18);
 		txtEstCost.setColumns(10);
 		add(txtEstCost);
 		txtEstCost.setDocument(new TextFieldLimit(10));
@@ -69,7 +69,7 @@ public class EcoCreateProjectCard extends JPanel {
 
 
 		txtProjNumber = new JTextField();
-		txtProjNumber.setBounds(124, 97, 278, 28);
+		txtProjNumber.setBounds(124, 107, 278, 18);
 		txtProjNumber.setColumns(10);
 		add(txtProjNumber);
 		txtProjNumber.setDocument(new TextFieldLimit(6));
@@ -91,7 +91,7 @@ public class EcoCreateProjectCard extends JPanel {
 		add(lblProjectname);
 
 		comboBox = new JComboBox();
-		comboBox.setBounds(124, 18, 278, 27);
+		comboBox.setBounds(124, 27, 278, 18);
 		add(comboBox);
 
 		customerList = Controller.getCustomers();
