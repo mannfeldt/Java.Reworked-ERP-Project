@@ -16,6 +16,8 @@
 		<typeAlias alias="TimeReport" type="objects.TimeReport" />
 		<typeAlias alias="Customer" type="objects.Customer" />
 		<typeAlias alias="Skill" type="objects.Skill" />
+		<typeAlias alias="CustomerContact" type="objects.CustomerContact" />
+		
 
 
 	</typeAliases>

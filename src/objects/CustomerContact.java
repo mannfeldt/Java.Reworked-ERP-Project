@@ -2,7 +2,7 @@ package objects;
 
 public class CustomerContact {
 	private String organisationNumber;
-	private Integer role;
+	private String role;
 	private String phone;
 	private String email;
 	private String firstName;
@@ -14,10 +14,10 @@ public class CustomerContact {
 	public void setOrganisationNumber(String organisationNumber) {
 		this.organisationNumber = organisationNumber;
 	}
-	public Integer getRole() {
+	public String getRole() {
 		return role;
 	}
-	public void setRole(Integer role) {
+	public void setRole(String role) {
 		this.role = role;
 	}
 	public String getPhone() {
@@ -46,9 +46,7 @@ public class CustomerContact {
 	}
 	
 	public String toString() {
-		return "CustomerContact [organisationNumber=" + organisationNumber
-				+ ", role=" + role + ", phone=" + phone + ", email=" + email
-				+ ", firstName=" + firstName + ", lastName=" + lastName + "]";
+		return  email +", "+firstName;
 	}
 	
 	

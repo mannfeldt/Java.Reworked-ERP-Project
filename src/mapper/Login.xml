@@ -83,7 +83,15 @@
 		<result property="skillsId" column="skillsId" />
 		<result property="description" column="description" />
 	</resultMap>
-        
+	
+      <resultMap id="mapCustomerContact" type="CustomerContact">
+		<result property="organisationNumber" column="organisationNumber" />
+		<result property="role" column="role" />
+		<result property="phone" column="phone" />
+		<result property="email" column="email" />
+		<result property="firstName" column="firstName" />
+		<result property="lastName" column="lastName" />
+	</resultMap>
         
 	
 	<resultMap id="AuthorLevel" type="String">
@@ -278,6 +286,12 @@
 		
 	</select>
 	
+<select id="selectAllContactCustomer" parameterType="CustomerContact"
+		resultMap="mapCustomerContact">
+		SELECT *
+		FROM CustomerContacts
+		
+	</select>
         
         
   

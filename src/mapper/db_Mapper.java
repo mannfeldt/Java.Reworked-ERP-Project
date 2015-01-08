@@ -6,8 +6,8 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import objects.CustomerContact;
 import objects.Skill;
-
 import objects.TimeReport;
 import objects.ProjectMember;
 import objects.Login;
@@ -351,6 +351,22 @@ public class db_Mapper {
 			}
 			return list;
 		}
+/**
+ * Return list of all Cutomercontacts from db
+ * @return List of all Cutomercontacts from db
+ */
+
+public List<CustomerContact> getAllContactCustomers() {
+	List<CustomerContact> list = null;
+	SqlSession session = sqlSessionFactory.openSession();
+
+	try {
+		list = session.selectList("Login.selectAllContactCustomer");
+	} finally {
+		session.close();
+	}
+	return list;
+}
 
 
 
