@@ -346,6 +346,11 @@ public class GUIHome {
 						btnAllocate.setBackground(new JButton().getBackground());
 						btnSendEmail.setBackground(new JButton()
 								.getBackground());
+						CardLayout cardLayout2 = (CardLayout) viewCards
+								.getLayout();
+						HomeDefaultCard TimeReport = new HomeDefaultCard();
+						viewCards.add(TimeReport, "TMR");
+						cardLayout2.show(viewCards, "TMR");
 					}
 				});
 				btnEKOMenu.setBounds(0, 40, 153, 25);
@@ -372,6 +377,11 @@ public class GUIHome {
 								.getBackground());
 						btnEmployees.setBackground(new JButton()
 								.getBackground());
+						CardLayout cardLayout2 = (CardLayout) viewCards
+								.getLayout();
+						HomeDefaultCard TimeReport = new HomeDefaultCard();
+						viewCards.add(TimeReport, "TMR");
+						cardLayout2.show(viewCards, "TMR");
 					}
 				});
 
@@ -396,6 +406,12 @@ public class GUIHome {
 								.getBackground());
 						btnContactEconomy.setBackground(new JButton()
 								.getBackground());
+						
+						CardLayout cardLayout2 = (CardLayout) viewCards
+								.getLayout();
+						HomeDefaultCard TimeReport = new HomeDefaultCard();
+						viewCards.add(TimeReport, "TMR");
+						cardLayout2.show(viewCards, "TMR");
 					}
 				});
 				btnHome.setBounds(0, 164, 153, 25);
@@ -422,6 +438,11 @@ public class GUIHome {
 						btnEKOMenu.setBackground(new JButton().getBackground());
 						btnTimeReport.setBackground(new JButton()
 								.getBackground());
+						CardLayout cardLayout2 = (CardLayout) viewCards
+								.getLayout();
+						HomeDefaultCard TimeReport = new HomeDefaultCard();
+						viewCards.add(TimeReport, "TMR");
+						cardLayout2.show(viewCards, "TMR");
 					}
 				});
 				btnConsultants.setBounds(0, 92, 153, 25);
@@ -445,6 +466,11 @@ public class GUIHome {
 						btnHRMenu.setBackground(new JButton().getBackground());
 						btnEKOMenu.setBackground(new JButton().getBackground());
 						btnNewUser.setBackground(new JButton().getBackground());
+						CardLayout cardLayout2 = (CardLayout) viewCards
+								.getLayout();
+						HomeDefaultCard TimeReport = new HomeDefaultCard();
+						viewCards.add(TimeReport, "TMR");
+						cardLayout2.show(viewCards, "TMR");
 					}
 				});
 				btnAdministration.setBounds(0, 118, 153, 25);
