@@ -81,7 +81,7 @@ public class GUIHome {
 								.getBackground());
 					}
 				});
-				btnContactHrm.setBounds(0, 12, 153, 25);
+				btnContactHrm.setBounds(0, 40, 154, 25);
 				HomeMenuCard.add(btnContactHrm);
 
 				btnContactEconomy = new JButton("Contact Economy");
@@ -99,8 +99,12 @@ public class GUIHome {
 								.getBackground());
 					}
 				});
-				btnContactEconomy.setBounds(0, 38, 153, 25);
+				btnContactEconomy.setBounds(0, 65, 153, 25);
 				HomeMenuCard.add(btnContactEconomy);
+				
+				JLabel lblContact = new JLabel("Contact");
+				lblContact.setBounds(10, 24, 133, 14);
+				HomeMenuCard.add(lblContact);
 				secondMenuCards.add(EKOmenuCard, "EKOmenuCard");
 
 				JPanel consultantMenuCard = new JPanel();
@@ -121,8 +125,12 @@ public class GUIHome {
 					}
 				});
 
-				btnTimeReport.setBounds(0, 12, 153, 25);
+				btnTimeReport.setBounds(0, 40, 153, 25);
 				consultantMenuCard.add(btnTimeReport);
+				
+				JLabel lblWork = new JLabel("Project");
+				lblWork.setBounds(10, 24, 133, 14);
+				consultantMenuCard.add(lblWork);
 				secondMenuCards.add(HRmenuCard, "HRmenuCard");
 				HRmenuCard.setLayout(null);
 
@@ -140,7 +148,7 @@ public class GUIHome {
 								.getBackground());
 					}
 				});
-				btnEmpOverview.setBounds(0, 41, 153, 25);
+				btnEmpOverview.setBounds(0, 40, 153, 25);
 				HRmenuCard.add(btnEmpOverview);
 
 				btnEmployees = new JButton("Update");
@@ -158,7 +166,7 @@ public class GUIHome {
 					}
 				});
 				frame.getContentPane().setLayout(null);
-				btnEmployees.setBounds(0, 67, 153, 25);
+				btnEmployees.setBounds(0, 65, 153, 25);
 				HRmenuCard.add(btnEmployees);
 				
 				JLabel lblEmployee = new JLabel("Employee");
@@ -211,7 +219,7 @@ public class GUIHome {
 						btnAllocate.setBackground(new JButton().getBackground());
 					}
 				});
-				btnCreateproject.setBounds(0, 12, 153, 25);
+				btnCreateproject.setBounds(0, 40, 153, 25);
 				EKOmenuCard.add(btnCreateproject);
 
 				btnInvoiceOverview = new JButton("Invoice Overview");
@@ -235,7 +243,7 @@ public class GUIHome {
 						btnAllocate.setBackground(new JButton().getBackground());
 					}
 				});
-				btnInvoiceOverview.setBounds(0, 66, 153, 25);
+				btnInvoiceOverview.setBounds(0, 144, 153, 25);
 				EKOmenuCard.add(btnInvoiceOverview);
 
 				btnWages = new JButton("Wages");
@@ -259,10 +267,10 @@ public class GUIHome {
 						btnAllocate.setBackground(new JButton().getBackground());
 					}
 				});
-				btnWages.setBounds(0, 91, 153, 25);
+				btnWages.setBounds(0, 195, 153, 25);
 				EKOmenuCard.add(btnWages);
 
-				btnSendEmail = new JButton("Send email");
+				btnSendEmail = new JButton("Mail customer ");
 				btnSendEmail.setHorizontalAlignment(SwingConstants.LEFT);
 				btnSendEmail.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
@@ -283,7 +291,7 @@ public class GUIHome {
 
 					}
 				});
-				btnSendEmail.setBounds(0, 141, 153, 25);
+				btnSendEmail.setBounds(0, 65, 153, 25);
 				EKOmenuCard.add(btnSendEmail);
 
 				JPanel adminMenuCard = new JPanel();
@@ -303,8 +311,12 @@ public class GUIHome {
 						btnNewUser.setBackground(SystemColor.activeCaption);
 					}
 				});
-				btnNewUser.setBounds(0, 12, 153, 25);
+				btnNewUser.setBounds(0, 40, 153, 25);
 				adminMenuCard.add(btnNewUser);
+				
+				JLabel lblCreate = new JLabel("Create");
+				lblCreate.setBounds(10, 24, 133, 14);
+				adminMenuCard.add(lblCreate);
 
 				pane.add(mainMenuPane);
 
@@ -336,7 +348,7 @@ public class GUIHome {
 								.getBackground());
 					}
 				});
-				btnEKOMenu.setBounds(0, 38, 153, 25);
+				btnEKOMenu.setBounds(0, 40, 153, 25);
 				mainMenuPane.add(btnEKOMenu);
 
 				Icon HrmIcon = new ImageIcon("source/images/HRM_logo.png");
@@ -386,10 +398,10 @@ public class GUIHome {
 								.getBackground());
 					}
 				});
-				btnHome.setBounds(0, 12, 153, 25);
+				btnHome.setBounds(0, 164, 153, 25);
 				mainMenuPane.add(btnHome);
 
-				btnHRMenu.setBounds(0, 64, 153, 25);
+				btnHRMenu.setBounds(0, 66, 153, 25);
 				mainMenuPane.add(btnHRMenu);
 
 				Icon ConsultantIcon = new ImageIcon(
@@ -412,7 +424,7 @@ public class GUIHome {
 								.getBackground());
 					}
 				});
-				btnConsultants.setBounds(0, 90, 153, 25);
+				btnConsultants.setBounds(0, 92, 153, 25);
 				mainMenuPane.add(btnConsultants);
 
 				Icon AdminIcon = new ImageIcon("source/images/Admin_logo.png");
@@ -435,7 +447,7 @@ public class GUIHome {
 						btnNewUser.setBackground(new JButton().getBackground());
 					}
 				});
-				btnAdministration.setBounds(0, 116, 153, 25);
+				btnAdministration.setBounds(0, 118, 153, 25);
 				mainMenuPane.add(btnAdministration);
 				
 				btnLogOut = new JButton("Log out");
@@ -454,7 +466,7 @@ public class GUIHome {
 					}
 				});
 				btnLogOut.setHorizontalAlignment(SwingConstants.LEFT);
-				btnLogOut.setBounds(0, 458, 153, 25);
+				btnLogOut.setBounds(0, 189, 154, 25);
 				mainMenuPane.add(btnLogOut);
 				pane.add(viewCards);
 				EKOmenuCard.setBackground(Color.LIGHT_GRAY);
@@ -480,7 +492,7 @@ public class GUIHome {
 						btnAllocate.setBackground(new JButton().getBackground());
 					}
 				});
-				btnCreateInvoice.setBounds(0, 37, 153, 29);
+				btnCreateInvoice.setBounds(0, 115, 153, 29);
 				EKOmenuCard.add(btnCreateInvoice);
 
 				btnAllocate = new JButton("Allocate Resources");
@@ -505,8 +517,20 @@ public class GUIHome {
 						btnAllocate.setBackground(SystemColor.activeCaption);
 					}
 				});
-				btnAllocate.setBounds(0, 116, 153, 25);
+				btnAllocate.setBounds(0, 220, 153, 25);
 				EKOmenuCard.add(btnAllocate);
+				
+				JLabel lblProject_1 = new JLabel("Project");
+				lblProject_1.setBounds(10, 24, 133, 14);
+				EKOmenuCard.add(lblProject_1);
+				
+				JLabel lblInvoice = new JLabel("Invoice");
+				lblInvoice.setBounds(10, 99, 133, 14);
+				EKOmenuCard.add(lblInvoice);
+				
+				JLabel label_2 = new JLabel("Employee");
+				label_2.setBounds(10, 180, 133, 14);
+				EKOmenuCard.add(label_2);
 
 				CardLayout cardLayout = (CardLayout) viewCards.getLayout();
 				HomeDefaultCard HDC = new HomeDefaultCard();
