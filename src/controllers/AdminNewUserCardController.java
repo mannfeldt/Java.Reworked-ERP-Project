@@ -21,7 +21,7 @@ public class AdminNewUserCardController {
 	 * @param password User password
 	 * @param name name
 	 * @param surname surname
-	 * @param AuthorizationLevel
+	 * @param AuthorizationLevel Level of Authorization
 	 */
 	
 	public void addNewPerson(String SSN, String password, String name, String surname, String AuthorizationLevel){
