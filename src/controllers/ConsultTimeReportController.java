@@ -33,7 +33,7 @@ public List<ProjectMember> getprojects(String sSN) {
  * @param sSN Social Security Number
  * @param projekt Projectname
  * @param date Date timereport
- * @param start Amount of time worked in hours
+ * @param start Amount of time worked, in hours
  * @param stop Comment of work done
  */
 public void addTimeReport(String sSN, String projekt, String date, String start, String stop) {
@@ -48,7 +48,7 @@ public void addTimeReport(String sSN, String projekt, String date, String start,
 
 }
 /**
- * Return timereport for a certain user
+ * Return timereports for a certain user
  * @param sSN Social Security Number
  * @return List of all timereports of a user
  */

@@ -27,7 +27,7 @@ public class HrEmployeeCardController {
 
 /**
  * Method for updating user
- * @param user Selected personal
+ * @param user Selected personal to be updated
  */
 	public void updateUser(User user) {
 		loginMapper.updateUser(user);

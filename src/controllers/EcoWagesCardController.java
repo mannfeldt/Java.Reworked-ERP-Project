@@ -13,8 +13,6 @@ import mapper.db_Mapper;
 public class EcoWagesCardController {
 	db_Mapper db_mapper = new db_Mapper(MyBatisConnectionFactory.getSqlSessionFactory());
 
-
-	
 	/**
 	 * List of all Employess
 	 * @return List of Employess
