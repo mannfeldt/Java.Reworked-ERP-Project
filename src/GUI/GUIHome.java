@@ -126,7 +126,7 @@ public class GUIHome {
 				secondMenuCards.add(HRmenuCard, "HRmenuCard");
 				HRmenuCard.setLayout(null);
 
-				btnEmpOverview = new JButton("Employees");
+				btnEmpOverview = new JButton("Overview");
 				btnEmpOverview.setHorizontalAlignment(SwingConstants.LEFT);
 				btnEmpOverview.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
@@ -140,10 +140,10 @@ public class GUIHome {
 								.getBackground());
 					}
 				});
-				btnEmpOverview.setBounds(0, 12, 153, 25);
+				btnEmpOverview.setBounds(0, 41, 153, 25);
 				HRmenuCard.add(btnEmpOverview);
 
-				btnEmployees = new JButton("Updt Employees");
+				btnEmployees = new JButton("Update");
 				btnEmployees.setHorizontalAlignment(SwingConstants.LEFT);
 				btnEmployees.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
@@ -158,8 +158,21 @@ public class GUIHome {
 					}
 				});
 				frame.getContentPane().setLayout(null);
-				btnEmployees.setBounds(0, 38, 153, 25);
+				btnEmployees.setBounds(0, 67, 153, 25);
 				HRmenuCard.add(btnEmployees);
+				
+				JLabel lblEmployee = new JLabel("Employee");
+				lblEmployee.setBounds(10, 24, 133, 14);
+				HRmenuCard.add(lblEmployee);
+				
+				JLabel lblProject = new JLabel("Project");
+				lblProject.setBounds(10, 97, 133, 14);
+				HRmenuCard.add(lblProject);
+				
+				JButton button = new JButton("Overview");
+				button.setHorizontalAlignment(SwingConstants.LEFT);
+				button.setBounds(0, 116, 153, 25);
+				HRmenuCard.add(button);
 				frame.getContentPane().add(secondMenuCards);
 
 				JButton btnHrknapp = new JButton("hrknapp1");
@@ -547,5 +560,4 @@ public class GUIHome {
 		// Display the window.
 		frame.setVisible(true);
 	}
-
 }
