@@ -562,7 +562,7 @@ public class GUIHome {
 				HomeDefaultCard HDC = new HomeDefaultCard();
 				viewCards.add(HDC, "HDC");
 				cardLayout.show(viewCards, "HDC");
-
+				checkAuthentication(controllers.LoginController.loggedinuserAu);
 			}
 	
 
@@ -576,7 +576,6 @@ public class GUIHome {
 		// Create and set up the window.
 
 		frame = new JFrame("Hyber");
-		frame.setResizable(false);
 		frame.setBounds(300, 100, 1200, 537);
 
 		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -606,8 +605,47 @@ public class GUIHome {
 				+ controllers.LoginController.loggedinuserAu + ", "
 				+ controllers.LoginController.loggedinuser);
 		frame.getContentPane().add(txloggedin);
+		
 
 		// Display the window.
 		frame.setVisible(true);
+	}
+
+
+	private void checkAuthentication(String loggedinuserAu) {
+		if(loggedinuserAu.equals("Economy user")){
+			btnEKOMenu.setEnabled(true);
+			btnConsultants.setEnabled(false);
+			btnAdministration.setEnabled(false);
+			btnHRMenu.setEnabled(false);
+			
+		}
+		if(loggedinuserAu.equals("Consultant")){
+			btnConsultants.setEnabled(true);
+			btnAdministration.setEnabled(false);
+			btnHRMenu.setEnabled(false);
+			btnEKOMenu.setEnabled(false);
+			
+		}
+		if(loggedinuserAu.equals("HR user")){
+			btnConsultants.setEnabled(false);
+			btnAdministration.setEnabled(false);
+			btnHRMenu.setEnabled(true);
+			btnEKOMenu.setEnabled(false);
+			
+		}
+		if(loggedinuserAu.equals("Admin")){
+			btnConsultants.setEnabled(false);
+			btnAdministration.setEnabled(true);
+			btnHRMenu.setEnabled(false);
+			btnEKOMenu.setEnabled(false);
+			
+		}
+		if(loggedinuserAu.equals("Management")){
+			btnConsultants.setEnabled(false);
+			btnAdministration.setEnabled(false);	
+			
+		}
+		
 	}
 }

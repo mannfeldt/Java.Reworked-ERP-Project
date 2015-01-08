@@ -19,7 +19,7 @@ public class LoginMapper {
 /**
  * Checks if login exists
  * @param login Logindata
- * @return Loginobject if exist
+ * @return Loginobject if existf
  */
     public Login selectIfExists(Login login) {
         SqlSession session = sqlSessionFactory.openSession();

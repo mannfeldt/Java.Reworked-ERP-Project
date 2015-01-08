@@ -20,7 +20,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 public class LoginController implements ActionListener {
 
     private final GUILogin guiLogin;
- 
+   
     public static String loggedinuser;
     public static  String loggedinuserAu;
 

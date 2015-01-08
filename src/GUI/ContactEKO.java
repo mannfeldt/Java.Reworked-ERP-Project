@@ -52,7 +52,7 @@ public class ContactEKO extends JPanel {
 		label_2.setBounds(6, 38, 146, 16);
 		add(label_2);
 		
-		JButton label_3 = new JButton("ArvidChef@Gmail.com");
+		JButton label_3 = new JButton("ArvidChef@Hyber.com");
 		label_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				MatterBox.removeAllItems();

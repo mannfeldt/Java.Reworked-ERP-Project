@@ -14,6 +14,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 /**
  * GUIClass for GUILogin
  * @author Jimmy
@@ -60,11 +62,14 @@ public class GUILogin extends JFrame {
      * Create the frame.
      */
     public GUILogin() {
+    	setResizable(false);
 
         // Add this instance to controller
         LoginController loginListener = new LoginController(this);
         
         contentPane = new JPanel();
+
+       
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         contentPane.setLayout(null);
@@ -93,6 +98,15 @@ public class GUILogin extends JFrame {
         contentPane.add(lblPassword);
 
         passwordField = new JPasswordField();
+        passwordField.addKeyListener(new KeyAdapter() {
+        	@Override
+        	public void keyPressed(KeyEvent e) {
+        			if(e.getKeyCode()==KeyEvent.VK_ENTER){
+        				btnLogin.doClick();
+        			}
+        	}
+        });
+        
         passwordField.setBounds(95, 105, 139, 20);
         contentPane.add(passwordField);
 
