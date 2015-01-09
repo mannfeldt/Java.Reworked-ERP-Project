@@ -642,9 +642,11 @@ public class GUIHome {
 			
 		}
 		if(loggedinuserAu.equals("Management")){
-			btnConsultants.setEnabled(false);
-			btnAdministration.setEnabled(false);	
 			
+			btnConsultants.setEnabled(true);
+			btnAdministration.setEnabled(true);
+			btnHRMenu.setEnabled(true);
+			btnEKOMenu.setEnabled(true);
 		}
 		
 	}
