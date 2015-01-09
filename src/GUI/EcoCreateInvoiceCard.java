@@ -1,5 +1,6 @@
 package GUI;
 
+import com.toedter.calendar.JDateChooser;
 import controllers.EcoCreateInvoiceCardController;
 
 import java.awt.Color;
@@ -11,13 +12,16 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JList;
+
 /**
  * GUIClass for EcoCreateInvoiceCard
+ *
  * @author Åskar
  *
  */
@@ -29,8 +33,10 @@ public final class EcoCreateInvoiceCard extends JPanel {
     private JComboBox comboBoxProject;
     private DefaultComboBoxModel customerList;
     private DefaultComboBoxModel projectsList;
-	private String selectedCustomer;
+    private String selectedCustomer;
     private JTextArea textAreaBillingAdress;
+    private JDateChooser invoiceDateChooser;
+    private final Date today = new Date();
 
     /**
      * Constructor
@@ -40,7 +46,7 @@ public final class EcoCreateInvoiceCard extends JPanel {
         controller = new EcoCreateInvoiceCardController(this);
 
         setDesign();
-        
+
         createLabels();
 
         createComboBoxCustomer(controller);
@@ -63,7 +69,7 @@ public final class EcoCreateInvoiceCard extends JPanel {
         setBackground(Color.LIGHT_GRAY);
         setLayout(null);
     }
-    
+
     private void createLabels() {
         JLabel lblLines = new JLabel("Select lines to add");
         lblLines.setFont(new Font("Segoe UI", Font.PLAIN, 14));
@@ -89,7 +95,7 @@ public final class EcoCreateInvoiceCard extends JPanel {
         lblBillingAdress.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         lblBillingAdress.setBounds(20, 82, 200, 25);
         add(lblBillingAdress);
-        
+
     }
 
     private void createInvoiceLines() {
@@ -119,12 +125,11 @@ public final class EcoCreateInvoiceCard extends JPanel {
     }
 
     private void createTextFieldInvoiceDate() {
-        textFieldInvoiceDate = new JTextField();
-        textFieldInvoiceDate.setBounds(20, 320, 200, 25);
-        add(textFieldInvoiceDate);
-        textFieldInvoiceDate.setColumns(10);
-
-        
+        invoiceDateChooser = new JDateChooser();
+        invoiceDateChooser.setBounds(20, 320, 200, 25);
+        add(invoiceDateChooser);
+        invoiceDateChooser.setDate(today);
+        ((JTextField) invoiceDateChooser.getDateEditor().getUiComponent()).setEditable(false);
     }
 
     private void createComboBoxProject(EcoCreateInvoiceCardController controller) {
@@ -137,9 +142,6 @@ public final class EcoCreateInvoiceCard extends JPanel {
             public void itemStateChanged(ItemEvent ItemEvent) {
             }
         });
-        
-
-        
     }
 
     /**
@@ -151,7 +153,7 @@ public final class EcoCreateInvoiceCard extends JPanel {
         comboBoxCustomer = new JComboBox();
         comboBoxCustomer.setBounds(20, 40, 200, 25);
         add(comboBoxCustomer);
-        
+
         customerList = controller.getCustomers();
         comboBoxCustomer.setModel(customerList);
         comboBoxCustomer.setSelectedIndex(-1);
@@ -160,8 +162,8 @@ public final class EcoCreateInvoiceCard extends JPanel {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 String selectedCustomer = getSelectedCustomer().toString();
-                DefaultComboBoxModel customerProjects =
-                controller.getCustomerProjects(selectedCustomer);
+                DefaultComboBoxModel customerProjects
+                = controller.getCustomerProjects(selectedCustomer);
                 controller.setCustomerAdress(comboBoxCustomer.getSelectedIndex());
                 setProjectsList(customerProjects);
             }
@@ -199,7 +201,7 @@ public final class EcoCreateInvoiceCard extends JPanel {
         this.projectsList = projectsList;
         comboBoxProject.setModel(projectsList);
     }
-    
+
     public void setBillingAdress(String adress) {
         textAreaBillingAdress.setText(adress);
     }
