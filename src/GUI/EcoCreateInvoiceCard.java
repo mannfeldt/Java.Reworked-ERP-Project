@@ -18,7 +18,7 @@ import javax.swing.JButton;
 import javax.swing.JList;
 /**
  * GUIClass for EcoCreateInvoiceCard
- * @author Jimmy
+ * @author Åskar
  *
  */
 public final class EcoCreateInvoiceCard extends JPanel {
@@ -40,6 +40,8 @@ public final class EcoCreateInvoiceCard extends JPanel {
         controller = new EcoCreateInvoiceCardController(this);
 
         setDesign();
+        
+        createLabels();
 
         createComboBoxCustomer(controller);
 
@@ -61,16 +63,41 @@ public final class EcoCreateInvoiceCard extends JPanel {
         setBackground(Color.LIGHT_GRAY);
         setLayout(null);
     }
+    
+    private void createLabels() {
+        JLabel lblLines = new JLabel("Select lines to add");
+        lblLines.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        lblLines.setBounds(300, 15, 200, 25);
+        add(lblLines);
+        JLabel lblTotalAmount = new JLabel("Total Amount");
+        lblTotalAmount.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        lblTotalAmount.setBounds(300, 295, 200, 25);
+        add(lblTotalAmount);
+        JLabel lblInvoiceDate = new JLabel("Invoice Date");
+        lblInvoiceDate.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        lblInvoiceDate.setBounds(20, 295, 200, 25);
+        add(lblInvoiceDate);
+        JLabel lblProject = new JLabel("Project");
+        lblProject.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        lblProject.setBounds(20, 225, 200, 25);
+        add(lblProject);
+        JLabel labelCustomer = new JLabel("Customer");
+        labelCustomer.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        labelCustomer.setBounds(20, 15, 200, 25);
+        add(labelCustomer);
+        JLabel lblBillingAdress = new JLabel("Billing Adress");
+        lblBillingAdress.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        lblBillingAdress.setBounds(20, 82, 200, 25);
+        add(lblBillingAdress);
+        
+    }
 
     private void createInvoiceLines() {
         JList listInvoiceLines = new JList();
         listInvoiceLines.setBounds(300, 40, 200, 235);
         add(listInvoiceLines);
 
-        JLabel lblLines = new JLabel("Select lines to add");
-        lblLines.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        lblLines.setBounds(300, 15, 200, 25);
-        add(lblLines);
+        
     }
 
     private void createTextFieldAmount() {
@@ -80,10 +107,7 @@ public final class EcoCreateInvoiceCard extends JPanel {
         add(textFieldTotalAmount);
         textFieldTotalAmount.setColumns(10);
 
-        JLabel lblTotalAmount = new JLabel("Total Amount");
-        lblTotalAmount.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        lblTotalAmount.setBounds(300, 295, 200, 25);
-        add(lblTotalAmount);
+        
     }
 
     private void createButtonSave(EcoCreateInvoiceCardController controller) {
@@ -100,10 +124,7 @@ public final class EcoCreateInvoiceCard extends JPanel {
         add(textFieldInvoiceDate);
         textFieldInvoiceDate.setColumns(10);
 
-        JLabel lblInvoiceDate = new JLabel("Invoice Date");
-        lblInvoiceDate.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        lblInvoiceDate.setBounds(20, 295, 200, 25);
-        add(lblInvoiceDate);
+        
     }
 
     private void createComboBoxProject(EcoCreateInvoiceCardController controller) {
@@ -118,10 +139,7 @@ public final class EcoCreateInvoiceCard extends JPanel {
         });
         
 
-        JLabel lblProject = new JLabel("Project");
-        lblProject.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        lblProject.setBounds(20, 225, 200, 25);
-        add(lblProject);
+        
     }
 
     /**
@@ -137,19 +155,6 @@ public final class EcoCreateInvoiceCard extends JPanel {
         customerList = controller.getCustomers();
         comboBoxCustomer.setModel(customerList);
         comboBoxCustomer.setSelectedIndex(-1);
-
-        JLabel labelCustomer = new JLabel("Customer");
-        labelCustomer.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        labelCustomer.setBounds(20, 15, 200, 25);
-        add(labelCustomer);
-
-        // This fires when selection is changed in customer combobox
-//        comboBoxCustomer.addItemListener((ItemEvent e)  {
-//            String selectedCustomer = getSelectedCustomer().toString();
-//            DefaultComboBoxModel customerProjects = 
-//            controller.getCustomerProjects(selectedCustomer);
-//            setProjectsList(customerProjects);
-//            });
         comboBoxCustomer.addItemListener(new ItemListener() {
 
             @Override
@@ -157,6 +162,7 @@ public final class EcoCreateInvoiceCard extends JPanel {
                 String selectedCustomer = getSelectedCustomer().toString();
                 DefaultComboBoxModel customerProjects =
                 controller.getCustomerProjects(selectedCustomer);
+                controller.setCustomerAdress(comboBoxCustomer.getSelectedIndex());
                 setProjectsList(customerProjects);
             }
         });
@@ -170,11 +176,6 @@ public final class EcoCreateInvoiceCard extends JPanel {
         textAreaBillingAdress.setEditable(false);
         textAreaBillingAdress.setBounds(20, 110, 200, 100);
         add(textAreaBillingAdress);
-
-        JLabel lblBillingAdress = new JLabel("Billing Adress");
-        lblBillingAdress.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        lblBillingAdress.setBounds(20, 82, 200, 25);
-        add(lblBillingAdress);
     }
 
     /**
@@ -199,7 +200,7 @@ public final class EcoCreateInvoiceCard extends JPanel {
         comboBoxProject.setModel(projectsList);
     }
     
-    private void setBillingAdress(String adress) {
+    public void setBillingAdress(String adress) {
         textAreaBillingAdress.setText(adress);
     }
 }
