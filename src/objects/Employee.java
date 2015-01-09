@@ -3,6 +3,8 @@ package objects;
 public class Employee {
 	
 	private String SSN;
+        private String firstName;
+        private String lastName;
 	private String employeeNumber;
 	private String employeeDate;
 	private String wage;
@@ -15,6 +17,18 @@ public class Employee {
 	public Employee(String SSN, String employeeNumber, String employeeDate,
 			String wage, String accountNumber) {
 		this.SSN = SSN;
+		this.employeeNumber = employeeNumber;
+		this.employeeDate = employeeDate;
+		this.wage = wage;
+		this.accountNumber = accountNumber;
+	}
+        
+        public Employee(String SSN, String firstName, String lastName, 
+                        String employeeNumber, String employeeDate,
+			String wage, String accountNumber) {
+		this.SSN = SSN;
+                this.firstName = firstName;
+                this.lastName = lastName;
 		this.employeeNumber = employeeNumber;
 		this.employeeDate = employeeDate;
 		this.wage = wage;
@@ -56,10 +70,11 @@ public class Employee {
 		this.accountNumber = accountNumber;
 	}
 	
-	public String toString() {
-		return  SSN 
-				+ " wage: " + wage+" SEK";
-	}
+	   public String toString() {
+        return SSN + " " + firstName + " " + lastName
+                + " " + wage + " SEK " + " " 
+                + "Account number:" + accountNumber;
+    }
 
 
 }

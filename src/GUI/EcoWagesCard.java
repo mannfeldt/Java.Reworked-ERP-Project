@@ -34,7 +34,7 @@ public class EcoWagesCard extends JPanel {
 		employeesWageModel = new DefaultListModel<Employee>();
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(21, 41, 399, 334);
+		scrollPane.setBounds(21, 41, 550, 334);
 		add(scrollPane);
 		employeesWageList = new JList<Employee>();
 		scrollPane.setViewportView(employeesWageList);
@@ -49,6 +49,7 @@ public class EcoWagesCard extends JPanel {
 		employees = Controller.getAllEmployees();
 		for (int i = 0; i < employees.size(); i++) {
 			employeesWageModel.add(i, employees.get(i));
+                        System.out.println(employees.get(i));
 		}
 		employeesWageList.setSelectedIndex(0);
 	}

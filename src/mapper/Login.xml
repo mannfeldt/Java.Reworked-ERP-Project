@@ -19,10 +19,13 @@
 
     <resultMap id="Employee" type="Employee">
         <result property="SSN" column="SSN" />
+        <result property="firstName" column="firstName"/>
+        <result property="lastName" column="lastName"/>
         <result property="employeeDate" column="employeeDate" />
         <result property="employeeNumber" column="employeeNumber" />
         <result property="wage" column="wage" />
         <result property="accountNumber" column="accountNumber" />
+        
     </resultMap>
 
     <resultMap id="paymentsIncoming" type="PaymentIncoming">
@@ -156,8 +159,16 @@
     </insert>
 	
     <select id="selectAllEmployees" resultMap="Employee">
-        SELECT SSN,
-        employeeDate, employeeNumber, wage, accountNumber FROM Employees;
+        SELECT
+        Employees.SSN,
+        Employees.employeeNumber,
+        Persons.firstName,
+        Persons.lastName,
+        Employees.employeeDate,
+        Employees.accountNumber,
+        Employees.wage 
+        FROM Employees 
+        JOIN Persons WHERE Employees.SSN = Persons.SSN
     </select>
 
     <select id="selectAllIncomingPayments" resultMap="paymentsIncoming">
