@@ -12,12 +12,16 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JList;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 /**
  * GUIClass for EcoCreateInvoiceCard
@@ -105,6 +109,18 @@ public final class EcoCreateInvoiceCard extends JPanel {
         listInvoiceLines = new JList();
         getListInvoiceLines().setBounds(300, 40, 500, 235);
         add(getListInvoiceLines());
+        listInvoiceLines.addListSelectionListener(new ListSelectionListener() {
+
+            @Override
+            public void valueChanged(ListSelectionEvent event) {
+                if (!event.getValueIsAdjusting())
+                {
+                int[] selectedIndices = listInvoiceLines.getSelectedIndices();
+                System.out.println(Arrays.toString(selectedIndices));
+                }
+                
+            }
+        });
         
         
     }
