@@ -81,6 +81,14 @@
 		<result property="startTime" column="startTime" />
 		<result property="stopTime" column="stopTime" />
 	</resultMap>
+        
+        <resultMap id="TimeReportProject" type="TimeReport">
+		<result property="SSN" column="SSN" />
+		<result property="projectNumber" column="projectNumber" />
+		<result property="date" column="date" />
+		<result property="startTime" column="startTime" />
+		<result property="stopTime" column="stopTime" />
+	</resultMap>
 	
 	<resultMap id="Skillsen" type="Skill">
 		<result property="skillsId" column="skillsId" />
@@ -273,6 +281,12 @@
             SELECT *
             FROM TimeReports
             WHERE SSN = #{SSN}
+        </select>
+        
+        <select id="selectTimeReportProject" parameterType="String"
+                resultMap="TimeReportProject">
+            SELECT * 
+            FROM TimeReports WHERE projectNumber = #{projectNumber}
         </select>
         
         

@@ -10,6 +10,7 @@ import mapper.MyBatisConnectionFactory;
 import mapper.db_Mapper;
 import objects.Customer;
 import objects.Project;
+import objects.TimeReport;
 /**
  * ControllerClass for handling EcoCreateInvoceCardGUI
  * @author Åskar
@@ -19,10 +20,12 @@ public final class EcoCreateInvoiceCardController implements ActionListener{
 
     private final EcoCreateInvoiceCard view;
     private final ArrayList<Customer> customers;
+    private ArrayList<TimeReport> timeReports;
 
     public EcoCreateInvoiceCardController(EcoCreateInvoiceCard view) {
         this.view = view;
         customers = new ArrayList<>();
+        timeReports = new ArrayList<>();
 
     }
 
@@ -95,6 +98,22 @@ public final class EcoCreateInvoiceCardController implements ActionListener{
         stringBuilder.append(country);
         String billingAdress = stringBuilder.toString();
         view.setBillingAdress(billingAdress);
+    }
+    
+    public DefaultComboBoxModel getTimeReportProject(String projectNumber) {
+        db_Mapper db_mapper = new db_Mapper
+        (MyBatisConnectionFactory.getSqlSessionFactory());
+        DefaultComboBoxModel timeReportList = new DefaultComboBoxModel();
+        List<TimeReport> timeReportProject = db_mapper.getTimeReportProject(projectNumber);
+        timeReports = new ArrayList<>();
+        for (TimeReport timeReport : timeReportProject) {
+            System.out.println(timeReport);
+            timeReportList.addElement(timeReport);
+            timeReports.add(timeReport);
+           
+        }
+        System.out.println("ARRAY CONTAINING:" + timeReports.toString());
+        return timeReportList;
     }
 
 }

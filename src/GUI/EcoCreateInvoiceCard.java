@@ -37,12 +37,15 @@ public final class EcoCreateInvoiceCard extends JPanel {
     private JTextArea textAreaBillingAdress;
     private JDateChooser invoiceDateChooser;
     private final Date today = new Date();
+    private final EcoCreateInvoiceCardController controller;
+    private JList listInvoiceLines;
+    private DefaultComboBoxModel invoiceLinesList;
 
     /**
      * Constructor
      */
     public EcoCreateInvoiceCard() {
-        EcoCreateInvoiceCardController controller;
+        
         controller = new EcoCreateInvoiceCardController(this);
 
         setDesign();
@@ -99,10 +102,10 @@ public final class EcoCreateInvoiceCard extends JPanel {
     }
 
     private void createInvoiceLines() {
-        JList listInvoiceLines = new JList();
-        listInvoiceLines.setBounds(300, 40, 200, 235);
-        add(listInvoiceLines);
-
+        listInvoiceLines = new JList();
+        getListInvoiceLines().setBounds(300, 40, 500, 235);
+        add(getListInvoiceLines());
+        
         
     }
 
@@ -140,6 +143,13 @@ public final class EcoCreateInvoiceCard extends JPanel {
 
             @Override
             public void itemStateChanged(ItemEvent ItemEvent) {
+                if (ItemEvent.getStateChange() == ItemEvent.SELECTED)
+                {
+                    DefaultComboBoxModel timeReportProject = 
+                    controller.getTimeReportProject (comboBoxProject.getSelectedItem().toString());
+                    listInvoiceLines.setModel(timeReportProject);
+                }
+
             }
         });
     }
@@ -166,6 +176,9 @@ public final class EcoCreateInvoiceCard extends JPanel {
                 = controller.getCustomerProjects(selectedCustomer);
                 controller.setCustomerAdress(comboBoxCustomer.getSelectedIndex());
                 setProjectsList(customerProjects);
+                comboBoxProject.setSelectedIndex(-1);
+                listInvoiceLines.setModel(new DefaultComboBoxModel());
+                
             }
         });
     }
@@ -204,5 +217,12 @@ public final class EcoCreateInvoiceCard extends JPanel {
 
     public void setBillingAdress(String adress) {
         textAreaBillingAdress.setText(adress);
+    }
+
+    /**
+     * @return the listInvoiceLines
+     */
+    public JList getListInvoiceLines() {
+        return listInvoiceLines;
     }
 }

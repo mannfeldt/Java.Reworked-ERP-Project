@@ -311,6 +311,19 @@ public class db_Mapper {
 			return list;
 
 		}
+                
+    public List<TimeReport> getTimeReportProject(String projectNumber) {
+        List<TimeReport> list = null;
+        SqlSession session = sqlSessionFactory.openSession();
+
+        try {
+            list = session.selectList("Login.selectTimeReportProject", projectNumber);
+        } finally {
+            session.close();
+        }
+        return list;
+
+    }
 
 /**
  * Return list of all projectmembers under a certain project from db
